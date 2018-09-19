@@ -1,0 +1,6 @@
+div.trim {
+  max-height: 700px;
+  overflow: hidden; }
+
+.is-horizontal-center {
+  justify-content: center; }
