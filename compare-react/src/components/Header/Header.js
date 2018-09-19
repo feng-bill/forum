@@ -27,7 +27,7 @@ class Header extends Component {
     let menuActive = this.state.isToggleOn ? 'is-active' : '';
 
     return (
-      <div className="navbar is-transparent">
+      <div className="navbar has-shadow">
         <div className = "container">
           <div className = "navbar-brand">
             <a className="navbar-item">My Forum</a>
@@ -46,7 +46,7 @@ class Header extends Component {
           <div className = {'navbar-end navbar-menu ' + menuActive }>
             <Link to="/" className="navbar-item r-item">Home</Link>
             <Link to="/faq" className="navbar-item r-item">Features</Link>
-            <Link to="/faq" className="navbar-item r-item">About</Link>
+            <Link to="/about" className="navbar-item r-item">About</Link>
             <Link to="/faq" className="navbar-item r-item">FAQ</Link>
             
             <div className="navbar-item">
