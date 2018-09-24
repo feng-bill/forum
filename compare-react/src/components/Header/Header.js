@@ -17,8 +17,10 @@ class Header extends Component {
   handleClick() {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
-    }));
+    })); 
   }
+
+  
 
   render() {
 
