@@ -7,7 +7,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div class="trim" >
+                <div className="trim" >
                     <figure className="container">
                         <img alt="" src="https://oneclassblog.com/wp-content/uploads/2018/09/img.php_.jpeg"></img>
                     </figure>

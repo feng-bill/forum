@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import classnames from 'classnames';
 
 class Register extends Component {
     constructor() {
@@ -16,15 +18,15 @@ class Register extends Component {
     }
 
     //when ever user type, use this function => set input into the state variable.
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+    onChange(i) {
+        this.setState({ [i.target.name]: i.target.value });
         //to change component state
         //name: this.state.value
     }
 
-    onSubmit(x) {
+    onSubmit(i) {
         //  Prevent deafult behavior
-        x.preventDefault();
+        i.preventDefault();
 
         //Register user -- Will use redux
         const newUser = {
@@ -32,12 +34,16 @@ class Register extends Component {
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2
-        }
-        console.log(newUser);
+        };
+        axios
+            .post('api/users/register', newUser)
+            .then(res => console.log(res.data))
+            .catch(err => this.setState({ errors: Response.error.data }));
     }
 
 
     render() {
+        const { errors } = this.state;
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -45,12 +51,15 @@ class Register extends Component {
                     <div className="field">
                         <label className="label">Name</label>
                         <div className="control">
-                            <input className="input"
+                            <input className={classnames('input', {
+                                'help is-danger': errors.name
+                            })}
                                 type="text"
                                 placeholder="Name"
                                 name="name"
                                 value={this.state.name}
-                                onChange={this.onChange.bind(this)} />
+                                onChange={this.onChange.bind(this)}
+                            />
                         </div>
                     </div>
 
@@ -83,7 +92,7 @@ class Register extends Component {
                         </div>
                     </div>
 
-                    {/*confirm*/}
+                    {/*confirm password*/}
                     <div className="field">
                         <label className="label">Password Confirmation</label>
                         <div className="control has-icons-left has-icons-right">
@@ -105,7 +114,7 @@ class Register extends Component {
 
                     <div className="field is-grouped">
                         <div className="control">
-                            <button type='submit' className="button is-link">Submit</button>
+                            <input type='submit' className="button is-link" />Submit
                         </div>
                         <div className="control">
                             <button className="button is-text">Cancel</button>

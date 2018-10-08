@@ -1,0 +1,41 @@
+img.has-text-center {
+  padding-left: 2em;
+  padding-right: 2em; }
+
+.top-padding {
+  margin-top: 120px;
+  position: relative; }
+
+.centered {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center; }
+
+.center-text {
+  font-size: 11vw;
+  font-weight: 500;
+  color: #ffffffd9; }
+
+hr.hr {
+  margin-right: 5em;
+  margin-left: 5em; }
+
+div.home-img {
+  max-height: 650px;
+  overflow: hidden;
+  width: 100%; }
+
+#grid {
+  border: 1px solid blue; }
+
+section.about-us {
+  padding-left: 15vw;
+  padding-right: 15vw; }
+
+h1.title {
+  font-size: 7vw;
+  font-weight: 500; }
+
+h1.subtitle {
+  text-align: left; }
