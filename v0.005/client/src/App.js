@@ -1,17 +1,49 @@
 import React, { Component } from "react"; //Currently, Statefull. B/c is with, "{Component}"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { clearCurrentProfile } from "./actions/profileActions";
 
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from "./store";
+
+import PrivateRoute from "./components/common/PrivateRoute";
 
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import Landing from "./components/layout/Landing/Landing";
 import Faq from "./components/layout/Faq/Faq";
 import About from "./components/layout/About/About";
+import School from "./components/layout/School/School";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/create-profile/CreateProfile";
+
 import "./App.css";
+
+//Check for token
+if (localStorage.jwtToken) {
+  //Set auth token header auth
+  setAuthToken(localStorage.jwtToken);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(localStorage.jwtToken);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+
+  // Check for expired token
+  const currenTime = Date.now() / 1000;
+  if (decoded.exp < currenTime) {
+    //Logout User
+    store.dispatch(logoutUser());
+
+    //Clear current profile
+    store.dispatch(clearCurrentProfile());
+    // redirect to login
+    window.location.href = "/login";
+  }
+}
 
 class App extends Component {
   render() {
@@ -26,6 +58,19 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/faq" component={Faq} /> */}
               <Route exact path="/about" component={About} />
+
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
+              </Switch>
+
+              <Route exact path="/school" component={School} />
             </div>
             <Footer />
           </div>
