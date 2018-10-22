@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./School.css";
 import axios from "axios";
+import Tabs from "./Tabs";
 //import TabApp from '/forum/compare-react/src/components/Tab/TabApp';
 const $ = window.$;
 class School extends Component {
@@ -39,6 +40,7 @@ class School extends Component {
         </section>
 
         <div className="body">
+
           <div className="columns">
             <div className="column is-two-thirds">
               <div />
