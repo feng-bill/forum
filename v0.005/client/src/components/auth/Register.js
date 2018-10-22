@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Register.css";
-import axios from "axios";
-import classnames from "classnames";
+import { withRouter } from "react-router-dom";
+//import axios from "axios";
+// import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 
 class Register extends Component {
   constructor() {
@@ -21,6 +23,17 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -34,9 +47,8 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    console.log(newUser);
 
-    this.props.registerUser(newUser);
+    this.props.registerUser(newUser, this.props.history);
 
     // axios
     //   .post("/api/users/register", newUser)
@@ -49,69 +61,49 @@ class Register extends Component {
     //const errors = this.state.errors;
     const { errors } = this.state;
 
-    const { user } = this.props.auth;
-
     return (
       <div className="register">
-        {/* {user ? user.name : null } */}
         <h1>Sign Up</h1>
         <form noValidate onSubmit={this.onSubmit}>
           <div>
-            <input
-              type="text"
-              className={classnames("input", {
-                "is-danger": errors.name
-              })}
+            <TextFieldGroup
               placeholder="Name"
               name="name"
               value={this.state.name}
-              onChange={this.onChange}  
+              onChange={this.onChange}
+              error={errors.name}
             />
-            {/*invalid error message*/}
-            {errors.name && <div className="is-danger">{errors.name}</div>}
           </div>
           <div>
-            <input
-              type="email"
-              className={classnames("defaultClassName", {
-                "is-danger": errors.email
-              })}
+            <TextFieldGroup
               placeholder="Email Address"
               name="email"
+              type="email"
               value={this.state.email}
               onChange={this.onChange}
+              error={errors.email}
+              //info="This site uses Gravatar for profile image"
             />
-            {errors.email && <div className="is-danger">{errors.email}</div>}
           </div>
           <div>
-            <input
-              type="password"
-              className={classnames("defaultClassName", {
-                "is-danger": errors.password
-              })}
+            <TextFieldGroup
               placeholder="Password"
               name="password"
+              type="password"
               value={this.state.password}
               onChange={this.onChange}
+              error={errors.password}
             />
-            {errors.password && (
-              <div className="is-danger">{errors.password}</div>
-            )}
           </div>
           <div>
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password2
-              })}
+            <TextFieldGroup
               placeholder="Confirm Password"
               name="password2"
+              type="password"
               value={this.state.password2}
               onChange={this.onChange}
+              error={errors.password2}
             />
-            {errors.password2 && (
-              <div className="is-invalid">{errors.password2}</div>
-            )}
           </div>
           <input type="submit" />
         </form>
@@ -120,16 +112,18 @@ class Register extends Component {
   }
 }
 
-Register.PropTypes = {
+Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateTopProps = state => ({
-  auth: state.auth //this comes from rootreducer
+  auth: state.auth, //this comes from rootreducer
+  errors: state.errors
 });
 
 export default connect(
   mapStateTopProps,
   { registerUser }
-)(Register);
+)(withRouter(Register));
