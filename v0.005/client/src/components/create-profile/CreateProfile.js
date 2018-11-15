@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
+import { createProfile } from "../../actions/profileActions";
 
 class CreateProfile extends Component {
   //Component state value -- Fields
@@ -14,10 +16,12 @@ class CreateProfile extends Component {
       displaySocialInputs: false,
       handle: "",
       company: "",
-      classStanding: "",
+      standing: "",
       skills: "",
       projects: "",
       linkedin: "",
+      youtube: "",
+      instagram: "",
       bio: "",
       errors: {}
     };
@@ -26,10 +30,29 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
-    console.log("submit");
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      standing: this.state.standing,
+      skills: this.state.skills,
+      projects: this.state.projects,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram,
+      bio: this.state.bio
+    };
+
+    this.props.createProfile(profileData, this.props.history);
+    //doesn't work by default, need import withRouter from react-router-dom
   }
 
   onChange(e) {
@@ -55,7 +78,7 @@ class CreateProfile extends Component {
             placeholder="Youtube profile"
             name="youtube"
             icon="fab fa-youtube"
-            value={this.state.linkedin}
+            value={this.state.youtube}
             onChange={this.onChange}
             error={errors.instagram}
           />
@@ -97,29 +120,22 @@ class CreateProfile extends Component {
                   name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
-                  errors={errors.handle}
+                  error={errors.handle}
                   info="A unique handle for your profile URL."
                 />
                 <SelectListGroup
                   placeholder="* Class Standing"
-                  name="classStanding"
-                  value={this.state.classStanding}
+                  name="standing"
+                  value={this.state.standing}
                   onChange={this.onChange}
                   options={options}
-                  errors={errors.classStanding}
+                  error={errors.standing}
                   info="What year are you?"
-                />
-                <TextFieldGroup
-                  placeholder="Linkedin"
-                  name="linkedin"
-                  value={this.state.linkedin}
-                  onChange={this.onChange}
-                  errors={errors.linkedin}
-                  info="Show off your linked for exposure"
                 />
 
                 <div>
                   <button
+                    type="button"
                     onClick={() => {
                       this.setState(prevState => ({
                         //Toggle this piece of input
@@ -158,4 +174,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(
+  mapStateToProps,
+  { createProfile }
+)(withRouter(CreateProfile));

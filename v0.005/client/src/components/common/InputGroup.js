@@ -15,11 +15,6 @@ const InputGroup = ({
 }) => {
   return (
     <div className="field control">
-      <div className="input is-primary">
-        <span placeholder="Placeholder input">
-          <i className={icon} />
-        </span>
-      </div>
       <textarea
         className={classnames("input", {
           "is-danger": error
