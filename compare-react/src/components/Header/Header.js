@@ -60,6 +60,9 @@ class Header extends Component {
                     <i className="fa fa-download"></i>
                   </span>
                   <span>Join Now</span>
+                </a>
+                <a className="button is-primary is-outlined">
+                  <span>Log In</span>
                 </a> 
               </p>
             </div>

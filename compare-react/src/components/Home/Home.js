@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./Home.css";
 import * as firebase from "firebase";
 import { Link } from "react-router-dom";
+import cardPic1 from "./Book.jpg";
+import cardPic2 from "./Ball.jpg";
+import cardPic3 from "./Entertain.jpg";
+import cardPic4 from "./Housing.jpg";
 //import Tabs from "./Tab.js";
 //import Pane from "./Pane.js";
 /*  
@@ -45,31 +49,25 @@ class Home extends Component {
         </div>
 
         <section className="hero is-medium has-bg-img">
-          
           <div className="hero-body">
-            
             <div className="container has-text-centered">
-              
-              <h1 className="title">Title 1</h1>
-              <h2 className="subtitle">Subtitle 3</h2>
+              <h1 className="title">Spartan Forum</h1>
+              <h2 className="subtitle"></h2>
             </div>
           </div>
         </section>
 
-
         <div className="body">
-          <div className="container">
-            <h1 className="title">Section Title</h1>
-          </div>
+
           <div className="columns">
-            <div className="column is-one-third">
-              <Link to={"/School"}>
-                <div className="card">
+          <div className="column is-one-quarter"></div>
+            <div className="column is-one-quarter">
+            <div className="card">
+                <Link to={"/school"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
-                        src="https://bulma.io/images/placeholders/1280x960.png"
-                        alt="Placeholder image"
+                        src={cardPic1}
                       />
                     </figure>
                   </div>
@@ -81,17 +79,18 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                
+              </div>
             </div>
 
-            <div className="column is-one-third">
-              <Link to={"/"}>
-                <div className="card">
+            <div className="column is-one-quarter">
+            <div className="card">
+                <Link to={"/"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
-                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        src={cardPic2}
                         alt="Placeholder image"
                       />
                     </figure>
@@ -100,23 +99,26 @@ class Home extends Component {
                     <div className="media">
                       <div className="media-left" />
                       <div className="media-content">
-                        <p className="title is-4">Choosing Classes</p>
+                        <p className="title is-4">Sports</p>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                
+              </div>
+              
             </div>
           </div>
 
           <div className="columns">
-            <div className="column is-one-third">
-              <Link to={"/"}>
-                <div className="card">
+          <div className="column is-one-quarter"></div>
+            <div className="column is-one-quarter">
+              <div className="card">
+                <Link to={"/"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
-                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        src={cardPic3}
                         alt="Placeholder image"
                       />
                     </figure>
@@ -129,17 +131,19 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                
+              </div>
             </div>
 
-            <div className="column is-one-third">
-              <Link to={"/"}>
-                <div className="card">
+            <div className="column is-one-quarter">
+            <Link to={"/"}>
+              <div className="card">
+                
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
-                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        src={cardPic4}
                         alt="Placeholder image"
                       />
                     </figure>
@@ -152,6 +156,7 @@ class Home extends Component {
                       </div>
                     </div>
                   </div>
+                
                 </div>
               </Link>
             </div>
