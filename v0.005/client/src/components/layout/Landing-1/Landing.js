@@ -1,35 +1,34 @@
 import React, { Component } from "react";
 import "./Landing.css";
 import { Link } from "react-router-dom";
-import cardPic1 from "./Book.jpg";
-import cardPic2 from "./Ball.jpg";
-import cardPic3 from "./Entertain.jpg";
-import cardPic4 from "./Housing.jpg";
-//import Tabs from "./Tab.js";
-//import Pane from "./Pane.js";
 
-class Landing extends Component {
+export default class Landing extends Component {
   render() {
     return (
       <div>
         <section className="hero is-medium has-bg-img">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title">Spartan Forum</h1>
-              <h2 className="subtitle" />
+              <h1 className="title">Title 1</h1>
+              <h2 className="subtitle">Subtitle 3</h2>
             </div>
           </div>
         </section>
 
         <div className="body">
+          <div className="container">
+            <h1 className="title">Section Title</h1>
+          </div>
           <div className="columns">
-            <div className="column is-one-quarter" />
-            <div className="column is-one-quarter">
-              <div className="card">
-                <Link to={"/school"}>
+            <div className="column is-one-third">
+              <Link to={"/School"}>
+                <div className="card">
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic1} />
+                      <img
+                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        alt=""
+                      />
                     </figure>
                   </div>
                   <div className="card-content">
@@ -40,39 +39,44 @@ class Landing extends Component {
                       </div>
                     </div>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
 
-            <div className="column is-one-quarter">
-              <div className="card">
-                <Link to={"/"}>
+            <div className="column is-one-third">
+              <Link to={"/"}>
+                <div className="card">
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic2} alt="Placeholder image" />
+                      <img
+                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        alt=""
+                      />
                     </figure>
                   </div>
                   <div className="card-content">
                     <div className="media">
                       <div className="media-left" />
                       <div className="media-content">
-                        <p className="title is-4">Sports</p>
+                        <p className="title is-4">Choosing Classes</p>
                       </div>
                     </div>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
           </div>
 
           <div className="columns">
-            <div className="column is-one-quarter" />
-            <div className="column is-one-quarter">
-              <div className="card">
-                <Link to={"/"}>
+            <div className="column is-one-third">
+              <Link to={"/"}>
+                <div className="card">
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic3} alt="Placeholder image" />
+                      <img
+                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        alt=""
+                      />
                     </figure>
                   </div>
                   <div className="card-content">
@@ -83,16 +87,19 @@ class Landing extends Component {
                       </div>
                     </div>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
 
-            <div className="column is-one-quarter">
+            <div className="column is-one-third">
               <Link to={"/"}>
                 <div className="card">
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic4} alt="Placeholder image" />
+                      <img
+                        src="https://bulma.io/images/placeholders/1280x960.png"
+                        alt=""
+                      />
                     </figure>
                   </div>
                   <div className="card-content">
@@ -112,5 +119,3 @@ class Landing extends Component {
     );
   }
 }
-
-export default Landing;

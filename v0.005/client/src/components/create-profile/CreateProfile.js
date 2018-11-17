@@ -15,12 +15,8 @@ class CreateProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
-      company: "",
       standing: "",
-      skills: "",
-      projects: "",
       linkedin: "",
-      youtube: "",
       instagram: "",
       bio: "",
       errors: {}
@@ -41,12 +37,8 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      company: this.state.company,
       standing: this.state.standing,
-      skills: this.state.skills,
-      projects: this.state.projects,
       linkedin: this.state.linkedin,
-      youtube: this.state.youtube,
       instagram: this.state.instagram,
       bio: this.state.bio
     };
@@ -75,14 +67,6 @@ class CreateProfile extends Component {
             error={errors.linkedin}
           />
           <InputGroup
-            placeholder="Youtube profile"
-            name="youtube"
-            icon="fab fa-youtube"
-            value={this.state.youtube}
-            onChange={this.onChange}
-            error={errors.instagram}
-          />
-          <InputGroup
             placeholder="Instagram profile"
             name="instagram"
             icon="fab fa-instagram"
@@ -103,60 +87,50 @@ class CreateProfile extends Component {
     ];
 
     return (
-      <div>
-        <div className="create-profile">
-          <div className="container">
-            <div className="">
-              <h1 className="is-size-1 has-text-centered">
-                Create Your Profile
-              </h1>
-              <p className="has-text-centered">Give me some info</p>
-              <small className="column is-7">* = required field</small>
+      <div className="create-profile">
+        <div className="container">
+          <h1 className="is-size-1 has-text-centered">Create Your Profile</h1>
+          <p className="has-text-centered">Give me some info</p>
+          <small className="column is-7">* = required field</small>
 
-              <form onSubmit={this.onSubmit}>
-                {/* profile handle - textfieldgroup */}
-                <TextAreaFieldGroup
-                  placeholder="* Profile Handle"
-                  name="handle"
-                  value={this.state.handle}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                  info="A unique handle for your profile URL."
-                />
-                <SelectListGroup
-                  placeholder="* Class Standing"
-                  name="standing"
-                  value={this.state.standing}
-                  onChange={this.onChange}
-                  options={options}
-                  error={errors.standing}
-                  info="What year are you?"
-                />
+          <form onSubmit={this.onSubmit}>
+            {/* profile handle - textfieldgroup */}
+            <TextAreaFieldGroup
+              placeholder="* Profile Handle"
+              name="handle"
+              value={this.state.handle}
+              onChange={this.onChange}
+              error={errors.handle}
+              info="A unique handle for your profile URL."
+            />
+            <SelectListGroup
+              placeholder="* Class Standing"
+              name="standing"
+              value={this.state.standing}
+              onChange={this.onChange}
+              options={options}
+              error={errors.standing}
+              info="What year are you?"
+            />
 
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      this.setState(prevState => ({
-                        //Toggle this piece of input
-                        displaySocialInputs: !prevState.displaySocialInputs
-                      }));
-                    }}
-                    className="button is-info"
-                  >
-                    Add social network link
-                  </button>
-                  <span className="has-text-grey-light">Optional</span>
-                </div>
-                {socialInput}
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="button is-info"
-                />
-              </form>
+            <div>
+              <button
+                type="button"
+                onClick={() => {
+                  this.setState(prevState => ({
+                    //Toggle this piece of input
+                    displaySocialInputs: !prevState.displaySocialInputs
+                  }));
+                }}
+                className="button is-info"
+              >
+                Add social network link
+              </button>
+              <span className="has-text-grey-light">Optional</span>
             </div>
-          </div>
+            {socialInput}
+            <input type="submit" value="Submit" className="button is-info" />
+          </form>
         </div>
       </div>
     );

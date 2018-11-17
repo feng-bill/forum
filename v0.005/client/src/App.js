@@ -16,6 +16,7 @@ import Landing from "./components/layout/Landing/Landing";
 import Faq from "./components/layout/Faq/Faq";
 import About from "./components/layout/About/About";
 import School from "./components/layout/School/School";
+import Post from "./components/layout/Post/Post";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -58,7 +59,6 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/faq" component={Faq} /> 
               <Route exact path="/about" component={About} />
-
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
@@ -70,7 +70,8 @@ class App extends Component {
                 />
               </Switch>
 
-              <Route exact path="/school" component={School} />
+              <Route path="/school" component={School} />
+              <Route path="/post" component={Post} />
             </div>
             <Footer />
           </div>
