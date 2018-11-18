@@ -18,7 +18,6 @@ class CreateProfile extends Component {
       standing: "",
       linkedin: "",
       instagram: "",
-      bio: "",
       errors: {}
     };
 
@@ -39,8 +38,7 @@ class CreateProfile extends Component {
       handle: this.state.handle,
       standing: this.state.standing,
       linkedin: this.state.linkedin,
-      instagram: this.state.instagram,
-      bio: this.state.bio
+      instagram: this.state.instagram
     };
 
     this.props.createProfile(profileData, this.props.history);
@@ -112,7 +110,6 @@ class CreateProfile extends Component {
               error={errors.standing}
               info="What year are you?"
             />
-
             <div>
               <button
                 type="button"
