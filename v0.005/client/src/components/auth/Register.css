@@ -1,2 +1,5 @@
 .register {
-  padding-top: 200px; }
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 25%;
+  display: inline-block; }

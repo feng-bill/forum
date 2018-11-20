@@ -39,6 +39,16 @@ class Dashboard extends Component {
     }
 
     return (
+      <React.Fragment>
+      <section className="hero is-medium has-bg-img">
+      <div className="hero-body">
+        <div className="container">
+          <div className="box">
+            <h1 className="title">Spartan Forum</h1>
+          </div>
+        </div>
+      </div>
+    </section>
       <div className="dashboard">
         <div className="container">
           <div className="columns">
@@ -49,6 +59,7 @@ class Dashboard extends Component {
           </div>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }

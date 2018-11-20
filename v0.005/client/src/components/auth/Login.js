@@ -55,28 +55,40 @@ class Login extends Component {
 
     return (
       <div>
-        <h1>Log In</h1>
+        <section className="hero is-medium has-bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="container">
+          <div className="logIn">
+            <h1><strong>Log In</strong></h1>
+            <form onSubmit={this.onSubmit}>
+              <TextFieldGroup
+                placeholder="Email Address"
+                name="email"
+                type="email"
+                value={this.state.email}
+                onChange={this.onChange}
+                error={errors.email}
+              />
+              <TextFieldGroup
+                placeholder="Password"
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.onChange}
+                error={errors.password}
+              />
 
-        <form onSubmit={this.onSubmit}>
-          <TextFieldGroup
-            placeholder="Email Address"
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.onChange}
-            error={errors.email}
-          />
-          <TextFieldGroup
-            placeholder="Password"
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.onChange}
-            error={errors.password}
-          />
-
-          <input type="submit" />
-        </form>
+              <input type="submit" />
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

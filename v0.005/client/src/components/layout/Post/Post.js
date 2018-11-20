@@ -15,8 +15,10 @@ class Post extends Component {
       <div>
         <section className="hero is-medium has-bg-img">
           <div className="hero-body">
-            <div className="container has-text-centered">
-              <h1 className="title">Spartan Forum</h1>
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
             </div>
           </div>
         </section>

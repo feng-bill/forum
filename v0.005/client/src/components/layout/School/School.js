@@ -64,19 +64,23 @@ class School extends Component {
           </div>
 
           <hr />
-          <div className="posting">
-            <textarea
-              className="textarea"
-              placeholder="Create your own post..."
-            />
-            <div className="control">
-              <div className="field is-grouped is-pulled-right">
-                <input
-                  className="button is-primary"
-                  type="submit"
-                  value="Submit"
+          <div className="ancestor2">
+            <div className="box">
+              <div className="posting">
+                <textarea
+                  className="textarea"
+                  placeholder="Create your own post..."
                 />
-                <input className="button" type="reset" value="Reset" />
+                <div className="control">
+                  <div className="field is-grouped is-pulled-right">
+                    <input
+                      className="button is-primary"
+                      type="submit"
+                      value="Post"
+                    />
+                  </div>
+                </div>
+                <br/>
               </div>
             </div>
           </div>
@@ -166,19 +170,23 @@ class School extends Component {
             </Link>
           </div>
           <hr />
-          <div className="posting">
-            <textarea
-              className="textarea"
-              placeholder="Create your own post..."
-            />
-            <div className="control">
-              <div className="field is-grouped is-pulled-right">
-                <input
-                  className="button is-primary"
-                  type="submit"
-                  value="Submit"
+          <div className="ancestor2">
+            <div className="box">
+              <div className="posting">
+                <textarea
+                  className="textarea"
+                  placeholder="Create your own post..."
                 />
-                <input className="button" type="reset" value="Reset" />
+                <div className="control">
+                  <div className="field is-grouped is-pulled-right">
+                    <input
+                      className="button is-primary"
+                      type="submit"
+                      value="Post"
+                    />
+                  </div>
+                </div>
+                <br/>
               </div>
             </div>
           </div>
@@ -189,9 +197,10 @@ class School extends Component {
       <div>
         <section className="hero is-medium has-bg-img">
           <div className="hero-body">
-            <div className="container has-text-centered">
-              <h1 className="title">Spartan Forum</h1>
-              <h2 className="subtitle" />
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
             </div>
           </div>
         </section>

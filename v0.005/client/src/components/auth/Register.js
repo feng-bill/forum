@@ -62,51 +62,64 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register">
-        <h1>Sign Up</h1>
-        <form noValidate onSubmit={this.onSubmit}>
-          <div>
-            <TextFieldGroup
-              placeholder="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.onChange}
-              error={errors.name}
-            />
+      <div>
+        <section className="hero is-medium has-bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
+            </div>
           </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Email Address"
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.onChange}
-              error={errors.email}
-              //info="This site uses Gravatar for profile image"
-            />
+        </section>
+        <div className="container">
+          <div className="register">
+            <h1><strong>Sign Up</strong></h1>
+            <form noValidate onSubmit={this.onSubmit}>
+              <div>
+                <TextFieldGroup
+                  placeholder="Name"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                />
+              </div>
+              <div>
+                <TextFieldGroup
+                  placeholder="Email Address"
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                  error={errors.email}
+                  //info="This site uses Gravatar for profile image"
+                />
+              </div>
+              <div>
+                <TextFieldGroup
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                  error={errors.password}
+                />
+              </div>
+              <div>
+                <TextFieldGroup
+                  placeholder="Confirm Password"
+                  name="password2"
+                  type="password"
+                  value={this.state.password2}
+                  onChange={this.onChange}
+                  error={errors.password2}
+                />
+              </div>
+              <input type="submit" />
+            </form>
           </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Password"
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.onChange}
-              error={errors.password}
-            />
-          </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Confirm Password"
-              name="password2"
-              type="password"
-              value={this.state.password2}
-              onChange={this.onChange}
-              error={errors.password2}
-            />
-          </div>
-          <input type="submit" />
-        </form>
+        </div>
       </div>
     );
   }
