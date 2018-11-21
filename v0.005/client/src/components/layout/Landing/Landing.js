@@ -5,18 +5,18 @@ import cardPic1 from "./Book.jpg";
 import cardPic2 from "./Ball.jpg";
 import cardPic3 from "./Entertain.jpg";
 import cardPic4 from "./Housing.jpg";
-//import Tabs from "./Tab.js";
-//import Pane from "./Pane.js";
 
 class Landing extends Component {
   render() {
     return (
-      <div>
+      //using React.Fragment to prevent layering of div
+      <React.Fragment>
         <section className="hero is-medium has-bg-img">
           <div className="hero-body">
-            <div className="container has-text-centered">
-              <h1 className="title">Spartan Forum</h1>
-              <h2 className="subtitle" />
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
             </div>
           </div>
         </section>
@@ -108,7 +108,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

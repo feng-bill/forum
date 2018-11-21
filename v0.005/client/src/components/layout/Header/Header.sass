@@ -1,5 +1,40 @@
 @import "../../../mq.sass"
 
+*
+    margin: 0px
+    padding: 0px
+
+.navbar 
+    background-color: #383838 !important
+    padding-bottom: 0px !important
+    a:hover
+        color: gray !important
+.navbar.has-shadow
+    padding-bottom: 0px !important
+    margin-bottom: 0px !important
+
+
+
+.navbar-brand a
+  color: #fff !important
+  font-weight: bold !important
+
+a.r-item
+  color: #C1C1C1 !important
+  padding: 0.5rem 1.75rem
+  +mobile
+    color: gray
+    &:hover
+      background-color: #F1F1F1 !important
+
+.navbar-burger span
+  background-color: #C1C1C1 !important
+
+.has-img
+    background: url('../../../assets/quadrapodB.jpg')center center
+    width: 100px
+    height: 80px
+    background-size: cover !important
 
 
 a.title
@@ -13,15 +48,17 @@ a.title
 div.navbar-start
     padding-left: 30px
     padding-right: 30px
+    padding-bottom: 0px
 
 div.navbar-end
     padding-left: 30px
     padding-right: 30px
+    padding-bottom: 0px
 
 div.navbar-item
     margin-left: 25px
     margin-right: 25px
 
-.logo
-    
+
+.logo 
     height: 7rem

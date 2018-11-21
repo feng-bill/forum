@@ -17,65 +17,56 @@ class Header extends Component {
 
     //Auth Link
     const authLinks = (
-      <div>
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div>
-              <a href="www.google.com" onClick={this.onLogoutClick.bind(this)}>
-                <img
-                  src={user.avatar}
-                  alt={user.name}
-                  style={{ width: "25px", marginRight: "5px" }}
-                  title="you have an image"
-                />
-                Logout
-              </a>
-            </div>
-          </div>
-        </div>
+      <div className="navbar-end">
+        <a
+          className="r-item navbar-item"
+          onClick={this.onLogoutClick.bind(this)}
+        >
+          <img
+            src={user.avatar}
+            alt={user.name}
+            style={{ width: "25px", marginRight: "5px" }}
+            title="you have an image"
+          />
+          Logout
+        </a>
       </div>
     );
 
     //Guest Link
     const guestLinks = (
-      <div>
-        <div className="navbar-item">
-          <div>
-            <Link className="title" to="/register">
-              Register
-            </Link>
-          </div>
-        </div>
-        <div className="navbar-item">
-          <div>
-            <Link className="title" to="/login">
-              Login
-            </Link>
-          </div>
-        </div>
+      <div className="navbar-end">
+        <a className="r-item navbar-item" href="/register">
+          Register
+        </a>
+        <a className="r-item navbar-item" href="/login">
+          Log In
+        </a>
       </div>
     );
 
     return (
-      <div className="navbar has-shadow">
-        <div className="container">
-          <div className="navbar-start">
-            <div className="navbar-brand">
-              <a href="/">
-                <img
-                  className="has-text-align logo"
-                  alt=""
-                  src={require("../../../assets/quadrapod.PNG")}
-                />
-              </a>
+      //using React.Fragment instead of div to prevent layering
+      <React.Fragment>
+        <div style={divStyle}>
+          <div className="navbar has-shadow">
+            <div className="container">
+              <div className="navbar-brand">
+                <a href="./" className="navbar-item has-img" />
+              </div>
+              {isAuthenticated ? authLinks : guestLinks}
             </div>
           </div>
-          <div>{isAuthenticated ? authLinks : guestLinks}</div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
+
+var divStyle = {
+  margin: 0,
+  padding: 0
+};
 
 Header.propTypes = {
   logoutUser: propTypes.func.isRequired,
