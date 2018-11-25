@@ -15,12 +15,13 @@ import Footer from "./components/layout/Footer/Footer";
 import Landing from "./components/layout/Landing/Landing";
 import Faq from "./components/layout/Faq/Faq";
 import About from "./components/layout/About/About";
-import School from "./components/layout/School/School";
-import Post from "./components/layout/Post/Post";
+import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
+import Profiles from "./components/profiles/Profiles";
 
 import "./App.css";
 
@@ -54,11 +55,12 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact={true} path="/" component={Landing} />
-           
+
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/faq" component={Faq} /> 
+              <Route exact path="/faq" component={Faq} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/profiles" component={Profiles} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
@@ -69,10 +71,13 @@ class App extends Component {
                   component={CreateProfile}
                 />
               </Switch>
+              <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/feed/:id" component={Post} />
+              </Switch>
 
-              <Route path="/school" component={School} />
-              <Route path="/post" component={Post} />
-           
             <Footer />
           </div>
         </Router>

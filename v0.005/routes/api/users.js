@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
-//const gravatar = require('gravatar');
+const gravatar = require("gravatar");
 
 // Load User model
 const User = require("../../models/User");
@@ -36,18 +36,17 @@ router.post("/register", (req, res) => {
       errors.email = "Email already exists";
       return res.status(400).json(errors);
     } else {
-      //   avatar;
-      //   const avatar = gravatar.url(req.body.email, {
-      //     s: "200", //size
-      //     r: "pg", //rating
-      //     d: "mm" //default
-      //   });
+      const avatar = gravatar.url(req.body.email, {
+        s: "200", //size
+        r: "pg", //rating
+        d: "mm" //default
+      });
 
       //Creating new resource
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        //avatar,
+        avatar,
         password: req.body.password
       });
 
@@ -92,7 +91,7 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         //User matched
-        const payload = { id: user.id, name: user.name }; //create JWT payload
+        const payload = { id: user.id, name: user.name, avatar: user.avatar }; //create JWT payload
 
         //Sign Token
         jwt.sign(

@@ -100,6 +100,7 @@ class Post extends Component {
                           <img src="https://bulma.io/images/placeholders/128x128.png" />
                         </p>
                       </figure>
+
                       <div className="media-content">
                         <div className="content">
                           <p>
