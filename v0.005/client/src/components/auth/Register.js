@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Register.css";
+import logo from "../../assets/quadrapodB.jpg";
 import { withRouter } from "react-router-dom";
 //import axios from "axios";
 // import classnames from "classnames";
@@ -62,52 +63,69 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register">
-        <h1>Sign Up</h1>
-        <form noValidate onSubmit={this.onSubmit}>
-          <div>
-            <TextFieldGroup
-              placeholder="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.onChange}
-              error={errors.name}
-            />
+      <section className="hero is-light">
+        <div id="login-page" className="card">
+          <div className="logo-contain">
+            <img className="logo" src={logo} />
           </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Email Address"
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.onChange}
-              error={errors.email}
-              //info="This site uses Gravatar for profile image"
-            />
+
+          <div className="login">
+            <div className="login-content">
+              <h1 style={{ paddingBottom: 20 }} className="is-size-4">
+                Register
+              </h1>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div>
+                  <TextFieldGroup
+                    placeholder="Name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                    error={errors.name}
+                  />
+                </div>
+                <div>
+                  <TextFieldGroup
+                    placeholder="Email Address"
+                    name="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
+                    error={errors.email}
+                    //info="This site uses Gravatar for profile image"
+                  />
+                </div>
+                <div>
+                  <TextFieldGroup
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    error={errors.password}
+                  />
+                </div>
+                <div>
+                  <TextFieldGroup
+                    placeholder="Confirm Password"
+                    name="password2"
+                    type="password"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                    error={errors.password2}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="button is-primary is-large is-fullwidth is-outlined"
+                >
+                  Register
+                </button>
+              </form>
+            </div>
           </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Password"
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.onChange}
-              error={errors.password}
-            />
-          </div>
-          <div>
-            <TextFieldGroup
-              placeholder="Confirm Password"
-              name="password2"
-              type="password"
-              value={this.state.password2}
-              onChange={this.onChange}
-              error={errors.password2}
-            />
-          </div>
-          <input type="submit" />
-        </form>
-      </div>
+        </div>
+      </section>
     );
   }
 }

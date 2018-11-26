@@ -2,6 +2,7 @@
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import FormStyle from "./FormStyle.css";
 
 // Accept property
 const TextFieldGroup = ({
@@ -19,7 +20,7 @@ const TextFieldGroup = ({
     <div className="form">
       <input
         type={type}
-        className={classnames("input", {
+        className={classnames("minStyle", {
           "is-danger": error
         })}
         placeholder={placeholder}

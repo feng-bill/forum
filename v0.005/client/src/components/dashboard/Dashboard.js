@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 
+import pic from "../../assets/bigHero.png";
+
 class Dashboard extends Component {
   //Want this be called right away
   //Life cycle method
@@ -28,9 +30,18 @@ class Dashboard extends Component {
         // User is logged in but no profile
         dashboardContent = (
           <div>
-            <p className="lead text-muted">Welcome {user.name}</p>
-            <p> no profile. please add something</p>
-            <Link to="/create-profile" className="button is-info">
+            <h1 className="lead text-muted is-size-2 is-capitalized">
+              Welcome {user.name}
+            </h1>
+            <p>
+              Looks empty here :( <br />
+              Don't be afraid to express yourself!
+            </p>
+            <br />
+            <Link
+              to="/create-profile"
+              className="button is-large is-info is-outlined"
+            >
               Create profile
             </Link>
           </div>
@@ -42,10 +53,16 @@ class Dashboard extends Component {
       <div className="dashboard">
         <div className="container">
           <div className="columns">
-            <div className="column is-12">
-              <h1 className="is-size-4">Dashboard</h1>
+            <div className="column is-three-fifths">
+              <h1 className="is-size-1">Dashboard</h1>
               {dashboardContent}
             </div>
+            <div class="column">
+              <figure className="image is-4by5">
+                <img src={pic} />
+              </figure>
+            </div>
+            <div class="column" />
           </div>
         </div>
       </div>

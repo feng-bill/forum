@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
+import logo from "../../assets/quadrapodB.jpg";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 //import classnames from "classnames";
@@ -54,30 +55,46 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div>
-        <h1>Log In</h1>
+      <section className="hero is-light">
+        <div id="login-page" className="card">
+          <div className="logo-contain">
+            <img className="logo" src={logo} />
+          </div>
 
-        <form onSubmit={this.onSubmit}>
-          <TextFieldGroup
-            placeholder="Email Address"
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.onChange}
-            error={errors.email}
-          />
-          <TextFieldGroup
-            placeholder="Password"
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.onChange}
-            error={errors.password}
-          />
+          <div className="login">
+            <div className="login-content">
+              <h1 style={{ paddingBottom: 20 }} className="is-size-4">
+                Login
+              </h1>
+              <form onSubmit={this.onSubmit}>
+                <TextFieldGroup
+                  placeholder="Email Address"
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                  error={errors.email}
+                />
+                <TextFieldGroup
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                  error={errors.password}
+                />
 
-          <input type="submit" />
-        </form>
-      </div>
+                <button
+                  type="submit"
+                  className="button is-primary is-large is-fullwidth is-outlined"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     );
   }
 }
