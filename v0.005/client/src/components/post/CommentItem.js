@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteComment } from "../../actions/postAction";
+import "./CommentItem.css";
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
     this.props.deleteComment(postId, commentId);
@@ -13,30 +14,34 @@ class CommentItem extends Component {
     const { comment, postId, auth } = this.props;
 
     return (
-      <div style={{ paddingTop: 100 }} className="column is-two-thirds">
+      <React.Fragment>
         <div className="box">
-          <article className="media media-left">
-            <figure className="image is-64x64">
-              <img src={comment.avatar} alt="" />
+          <article className="media">
+            <figure className="media-left">
+              <p className="image is-64x64">
+                <img src={comment.avatar} alt="" />
+              </p>
             </figure>
             <div className="media-content">
-              <p>
-                <strong>{comment.text}</strong>
-                <small>@{comment.name}</small>
-              </p>
-              {comment.user === auth.user.id ? (
-                <button
-                  onClick={this.onDeleteClick.bind(this, postId, comment._id)}
-                  type="button"
-                  className="is-danger"
-                >
-                  Delete <i className="fa fa-times" />
-                </button>
-              ) : null}
+              <div className="content">
+                <p>
+                  <strong>{comment.text}</strong>
+                  <small>@{comment.name}</small>
+                </p>
+                {comment.user === auth.user.id ? (
+                  <button
+                    onClick={this.onDeleteClick.bind(this, postId, comment._id)}
+                    type="button"
+                    className="is-danger"
+                  >
+                    Delete <i className="fa fa-times" />
+                  </button>
+                ) : null}
+              </div>
             </div>
           </article>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

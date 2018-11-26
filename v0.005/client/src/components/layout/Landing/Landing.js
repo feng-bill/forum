@@ -26,7 +26,7 @@ class Landing extends Component {
             <div className="column is-one-quarter" />
             <div className="column is-one-quarter">
               <div className="card">
-                <Link to={"/school"}>
+                <Link to={"/feed"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img src={cardPic1} />

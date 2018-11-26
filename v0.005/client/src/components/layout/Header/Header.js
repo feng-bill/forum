@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
 import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authActions";
@@ -44,7 +43,6 @@ class Header extends Component {
         </a>
       </div>
     );
-
     return (
       //using React.Fragment instead of div to prevent layering
       <React.Fragment>
@@ -52,15 +50,20 @@ class Header extends Component {
           <div className="navbar has-shadow">
             <div className="container">
               <div className="navbar-brand">
-                <a href="./" className="navbar-item has-img" />
+                <a href="/" className="navbar-item has-img" />
               </div>
               {isAuthenticated ? authLinks : guestLinks}
-            </div>
+          </div>
           </div>
         </div>
       </React.Fragment>
     );
   }
+}
+
+var divStyle ={
+  margin: 0,
+  padding: 0
 }
 
 var divStyle = {

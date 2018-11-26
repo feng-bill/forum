@@ -7,7 +7,7 @@ import CommentFeed from "./CommentFeed";
 import Spinner from "../common/Spinner";
 import { getPost } from "../../actions/postAction";
 import { Link } from "react-router-dom";
-
+import "./Post.css";
 class Post extends Component {
   componentDidMount() {
     this.props.getPost(this.props.match.params.id);
@@ -26,21 +26,82 @@ class Post extends Component {
       postContent = <Spinner />;
     } else {
       postContent = (
-        <div>
+        <React.Fragment>
           <PostItem post={post} showActions={false} />
+          
+          <div className="invisibleBox"><hr />
+            <CommentFeed postId={post._id} comments={post.comments} />
+          </div>
+          <hr />
           <CommentForm postId={post._id} />
-          <CommentFeed postId={post._id} comments={post.comments} />
-        </div>
+          
+        </React.Fragment>
       );
     }
 
     return (
-      <div>
-        <button type="button" className="button is-info">
-          <Link to="/feed">Back To Feed</Link>
-        </button>
-        {postContent}
-      </div>
+      <React.Fragment>
+        <section className="hero is-medium has-bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="body2">
+          <nav className="level">
+            <div className="level-left">
+              <div className="level-item">
+                <p>
+                  <a href="/">Home</a> > <a href="./">Feed</a> >{" "}
+                  <a href="javascript:window.location.href=window.location.href">
+                    Post
+                  </a>
+                </p>
+              </div>
+            </div>
+          </nav>
+          <button type="button" className="button">
+            <Link to="/feed">Back To Feed</Link>
+          </button>
+          <div className="columns">
+            <div className="column is-two-thirds">
+              <div className="box">{postContent}</div>
+            </div>
+            <div className="column is-one-third">
+              <div className="content">
+                <p className="subTitle">
+                  <b>Trending</b>
+                </p>
+                <hr />
+
+                <ul>
+                  <li>
+                    <a href="/" target="_blank">
+                      A Specific Post
+                    </a>
+                  </li>
+                  <hr />
+                  <li>
+                    <a href="/" target="_blank">
+                      A Specific Post
+                    </a>
+                  </li>
+                  <hr />
+                  <li>
+                    <a href="/" target="_blank">
+                      A Specific Post
+                    </a>
+                  </li>
+                  <hr />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

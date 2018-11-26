@@ -55,7 +55,7 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact={true} path="/" component={Landing} />
-            <div className="container">
+
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/faq" component={Faq} />
@@ -75,9 +75,9 @@ class App extends Component {
                 <PrivateRoute exact path="/feed" component={Posts} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/post/:id" component={Post} />
+                <PrivateRoute exact path="/feed/:id" component={Post} />
               </Switch>
-            </div>
+
             <Footer />
           </div>
         </Router>

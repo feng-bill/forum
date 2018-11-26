@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { addComment } from "../../actions/postAction";
-
+import "./CommentForm.css";
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -45,21 +45,40 @@ class CommentForm extends Component {
     const { errors } = this.state;
 
     return (
-      <div style={{ paddingTop: 100 }}>
-        <div className="is-4">Ask you question here </div>
-        <form onSubmit={this.onSubmit}>
-          <TextAreaFieldGroup
-            placeholder="Reply to post"
-            name="text"
-            value={this.state.text}
-            onChange={this.onChange}
-            error={errors.text}
-          />
-          <button className="button is-primary is-pulled-right" type="submit">
-            Post
-          </button>
-        </form>
-      </div>
+      <React.Fragment>
+        <div className ="commentForm">
+        <div className="box"> 
+          <article className="media">
+            <figure className="media-left">
+              <p className="image is-64x64">
+                <img src={this.avatar} alt="" />
+              </p>
+            </figure>
+            <form onSubmit={this.onSubmit}>
+              <div className="media-content">
+                <div className="field">
+                  <p className="control">
+                    <TextAreaFieldGroup
+                      placeholder="Add a comment..."
+                      name="text"
+                      value={this.state.text}
+                      onChange={this.onChange}
+                      error={errors.text}
+                    />
+                  </p>
+                </div>
+                <div className="field">
+                  <p className="control">
+                    <button type="submit" className="button">
+                      Post comment
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </form>
+          </article>
+        </div></div>
+      </React.Fragment>
     );
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { addPost } from "../../actions/postAction";
-
+import "./PostForm.css";
 class PostForm extends Component {
   constructor(props) {
     super(props);
@@ -39,25 +39,39 @@ class PostForm extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
+  //<div style={{ paddingTop: 100 }}>
   render() {
     const { errors } = this.state;
     return (
-      <div style={{ paddingTop: 100 }}>
-        <div className="is-4">Say Something</div>
-        <form onSubmit={this.onSubmit}>
-          <TextAreaFieldGroup
-            placeholder="Ask you question here"
-            name="text"
-            value={this.state.text}
-            onChange={this.onChange}
-            error={errors.text}
-          />
-          <button className="button is-primary is-pulled-right" type="submit">
-            Post
-          </button>
-        </form>
-      </div>
+      <React.Fragment>
+        <hr/>
+        <div className="is-4"><strong>Ask a Question:</strong></div>
+        <div className="ancestor2">
+          <div className="box">
+            <div className="posting">
+              <form onSubmit={this.onSubmit}>
+                <TextAreaFieldGroup
+                  placeholder="Ask your question here"
+                  name="text"
+                  value={this.state.text}
+                  onChange={this.onChange}
+                  error={errors.text}
+                />
+                <div className="control">
+                  <div className="field is-grouped">
+                    <input
+                      className="button is-primary"
+                      type="submit"
+                      value="Post"
+                    />
+                  </div>
+                </div>
+              </form>
+              <br />
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

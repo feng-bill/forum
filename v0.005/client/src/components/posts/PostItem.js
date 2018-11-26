@@ -29,18 +29,20 @@ class PostItem extends Component {
     const { post, auth, showActions } = this.props;
 
     return (
-      <div style={{ paddingTop: 100 }} className="column is-two-thirds">
+      <div style={{ paddingTop: 20 }}>
         <div className="box">
+        
           <article className="media media-left">
             <figure className="image is-64x64">
               <img src={post.avatar} alt="" />
             </figure>
             <div className="media-content">
+            <Link to={`/feed/${post._id}`} className="is-info">
               <p>
-                <strong>{post.text}</strong>
+                <strong>{post.text} </strong>
                 <small>@{post.name}</small>
                 <br />
-              </p>
+              </p></Link>
               {showActions ? (
                 <span>
                   {/* Like button */}
@@ -67,9 +69,8 @@ class PostItem extends Component {
 
                   <article className="media">
                     <div className="media-content">
-                      <Link to={`/post/${post._id}`} className="is-info">
-                        Comments
-                      </Link>
+                      
+                       
                       {post.user === auth.user.id ? (
                         <button
                           onClick={this.onDeleteClick.bind(this, post._id)}
@@ -83,8 +84,9 @@ class PostItem extends Component {
                   </article>
                 </span>
               ) : null}
-            </div>
+            </div>        
           </article>
+          
         </div>
       </div>
     );
