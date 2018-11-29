@@ -13,7 +13,6 @@ import PrivateRoute from "./components/common/PrivateRoute";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import Landing from "./components/layout/Landing/Landing";
-import Faq from "./components/layout/Faq/Faq";
 import About from "./components/layout/About/About";
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
@@ -56,7 +55,7 @@ class App extends Component {
             <Route exact={true} path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/faq" component={Faq} />
+
             <Route exact path="/about" component={About} />
             <Route exact path="/profiles" component={Profiles} />
             <Switch>

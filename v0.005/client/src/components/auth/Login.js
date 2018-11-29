@@ -18,7 +18,7 @@ class Login extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.spell = this.spell.bind(this);
+    // this.spell = this.spell.bind(this);
   }
 
   componentDidMount() {
@@ -33,30 +33,34 @@ class Login extends Component {
     }
 
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      this.setState({ errors: nextProps.errors })
     }
+
+
   }
 
   onSubmit(e) {
     e.preventDefault();
+
     const userData = {
       email: this.state.email,
       password: this.state.password,
     };
 
-    this.props.loginUser(userData);
+    this.props.loginUser(userData)
+
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  spell() {
-    for (let i in this.state.errors) {
-      alert("Password: " + JSON.stringify(this.state.errors[i].password))
-      alert("Email: " + JSON.stringify(this.state.errors[i].email))
-    }
-  }
+  // spell() {
+  //   for (let i in this.state.errors) {
+  //     alert("Password: " + JSON.stringify(this.state.errors[i].password))
+  //     alert("Email: " + JSON.stringify(this.state.errors[i].email))
+  //   }
+  // }
 
   render() {
     const { errors } = this.state;
@@ -110,12 +114,12 @@ class Login extends Component {
                     Login
                 </button>
                 </form>
-                {this.spell()}
+
               </div>
             </div>
           </div>
         </section>
-
+        {"Password: " + JSON.stringify(this.state.errors[0])}
       </div>
 
     );
