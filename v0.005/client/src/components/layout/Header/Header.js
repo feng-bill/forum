@@ -16,60 +16,63 @@ class Header extends Component {
 
     //Auth Link
     const authLinks = (
-      <div className="navbar-end">
-        <a
-          className="r-item navbar-item"
-          onClick={this.onLogoutClick.bind(this)}
-        >
-          <img
-            src={user.avatar}
-            alt={user.name}
-            style={{ width: "25px", marginRight: "5px" }}
-            title="you have an image"
-          />
-          Logout
+
+      <a
+        className="r-item navbar-item"
+        onClick={this.onLogoutClick.bind(this)}
+      >
+        <img
+          src={user.avatar}
+          alt={user.name}
+          style={{ width: "25px", marginRight: "5px" }}
+          title="you have an image"
+        />
+        Logout
         </a>
-      </div>
+
     );
 
     //Guest Link
     const guestLinks = (
-      <div className="navbar-end">
-        <a className="r-item navbar-item" href="/register">
-          Register
-        </a>
-        <a className="r-item navbar-item" href="/login">
-          Log In
-        </a>
+      <div className="buttons">
+        <a className="button is-dark" href="/login">Sign In</a>
+        <a className="button is-light " href="/register">Sign Up</a>
+
       </div>
     );
     return (
       //using React.Fragment instead of div to prevent layering
       <React.Fragment>
-        <div style={divStyle}>
-          <div className="navbar has-shadow">
-            <div className="container">
-              <div className="navbar-brand">
-                <a href="/" className="navbar-item has-img" />
+        <nav className="navbar is-primary">
+          <div className="container">
+            <div className="navbar-brand">
+              <a href="/" className="navbar-item has-img" />
+            </div>
+            <div className="navbar-end">
+              <a href="/" className="navbar-item">Home</a>
+              <a href="/feed" className="navbar-item">Academic</a>
+              <a href="/about" className="navbar-item">About</a>
+              <div className=" navbar-item field has-addons">
+                <div className="control">
+                  <input className="input" type="text" placeholder="Search a question" />
+                </div>
+                <div className="control">
+                  <a className="button is-info">
+                    Search
+                  </a>
+                </div>
               </div>
-              {isAuthenticated ? authLinks : guestLinks}
+              <div className="navbar-item">
+                {isAuthenticated ? authLinks : guestLinks}
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
+        </nav>
+
       </React.Fragment>
     );
   }
 }
-
-var divStyle ={
-  margin: 0,
-  padding: 0
-}
-
-var divStyle = {
-  margin: 0,
-  padding: 0
-};
 
 Header.propTypes = {
   logoutUser: propTypes.func.isRequired,

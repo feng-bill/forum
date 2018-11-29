@@ -14,13 +14,14 @@ const TextFieldGroup = ({
   info,
   type,
   onChange,
-  disabled
+  disabled,
 }) => {
   return (
+
     <div className="form">
       <input
         type={type}
-        className={classnames("minStyle", {
+        className={classnames("input", {
           "is-danger": error
         })}
         placeholder={placeholder}
@@ -32,7 +33,11 @@ const TextFieldGroup = ({
       {info && <small className="form-text text-muted">{info}</small>}
       {/*invalid error message*/}
       {error && <div className="is-danger">{error}</div>}
+
+
     </div>
+
+
   );
 };
 

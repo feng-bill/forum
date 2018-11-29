@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./Landing.css";
 import { Link } from "react-router-dom";
-import cardPic1 from "./Book.jpg";
-import cardPic2 from "./Ball.jpg";
-import cardPic3 from "./Entertain.jpg";
-import cardPic4 from "./Housing.jpg";
+import academic from "./Book.jpg";
+import sport from "./Ball.jpg";
+import entertainment from "./Entertain.jpg";
+import housing from "./Housing.jpg";
 
 class Landing extends Component {
   render() {
@@ -29,14 +29,14 @@ class Landing extends Component {
                 <Link to={"/feed"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic1} />
+                      <img src={academic} alt="Academic" />
                     </figure>
                   </div>
                   <div className="card-content">
-                    <div className="media">
-                      <div className="media-left" />
+                    <div className="media media-left">
+
                       <div className="media-content">
-                        <p className="title is-4">School</p>
+                        <p className="title is-4">Academic</p>
                       </div>
                     </div>
                   </div>
@@ -49,12 +49,12 @@ class Landing extends Component {
                 <Link to={"/"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic2} alt="Placeholder image" />
+                      <img src={sport} alt="Sport" />
                     </figure>
                   </div>
                   <div className="card-content">
-                    <div className="media">
-                      <div className="media-left" />
+                    <div className="media media-left">
+
                       <div className="media-content">
                         <p className="title is-4">Sports</p>
                       </div>
@@ -72,12 +72,11 @@ class Landing extends Component {
                 <Link to={"/"}>
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic3} alt="Placeholder image" />
+                      <img src={entertainment} alt="Entertainment" />
                     </figure>
                   </div>
                   <div className="card-content">
-                    <div className="media">
-                      <div className="media-left" />
+                    <div className="media media-left">
                       <div className="media-content">
                         <p className="title is-4">Entertainment</p>
                       </div>
@@ -92,12 +91,11 @@ class Landing extends Component {
                 <div className="card">
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img src={cardPic4} alt="Placeholder image" />
+                      <img src={housing} alt="Housing" />
                     </figure>
                   </div>
                   <div className="card-content">
-                    <div className="media">
-                      <div className="media-left" />
+                    <div className="media media-left">
                       <div className="media-content">
                         <p className="title is-4">Housing</p>
                       </div>

@@ -63,69 +63,85 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <section className="hero is-light">
-        <div id="login-page" className="card">
+      <div>
+        <section className="hero is-light">
           <div className="logo-contain">
-            <img className="logo" src={logo} />
+            <figure className="image is-128x128">
+              <img style={{ marginTop: 50 }} className="is-rounded" src={logo} />
+            </figure>
           </div>
-
-          <div className="login">
-            <div className="login-content">
-              <h1 style={{ paddingBottom: 20 }} className="is-size-4">
-                Register
-              </h1>
-              <form noValidate onSubmit={this.onSubmit}>
-                <div>
-                  <TextFieldGroup
-                    placeholder="Name"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.onChange}
-                    error={errors.name}
-                  />
-                </div>
-                <div>
-                  <TextFieldGroup
-                    placeholder="Email Address"
-                    name="email"
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    error={errors.email}
-                    //info="This site uses Gravatar for profile image"
-                  />
-                </div>
-                <div>
-                  <TextFieldGroup
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                    error={errors.password}
-                  />
-                </div>
-                <div>
-                  <TextFieldGroup
-                    placeholder="Confirm Password"
-                    name="password2"
-                    type="password"
-                    value={this.state.password2}
-                    onChange={this.onChange}
-                    error={errors.password2}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="button is-primary is-large is-fullwidth is-outlined"
-                >
-                  Register
+          <h1 style={{ paddingBottom: 20 }} className="is-size-4 has-text-centered">
+            Sign Up
+          </h1>
+          <div id="login-page" className="card">
+            <div className="login">
+              <div className="login-content">
+                <form onSubmit={this.onSubmit}>
+                  <div class="field">
+                    <label class="label">Your Name</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Name"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.onChange}
+                        error={errors.name}
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Email Address</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Email Address"
+                        name="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                        error={errors.email}
+                      //info="This site uses Gravatar for profile image"
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                        error={errors.password}
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Confirm Password"
+                        name="password2"
+                        type="password"
+                        value={this.state.password2}
+                        onChange={this.onChange}
+                        error={errors.password2}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    className="button is-primary is-large is-fullwidth is-outlined"
+                  >
+                    Register
                 </button>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section >
+      </div>
+
     );
   }
 }

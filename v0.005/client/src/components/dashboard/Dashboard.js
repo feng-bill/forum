@@ -51,31 +51,31 @@ class Dashboard extends Component {
 
     return (
       <React.Fragment>
-      <section className="hero is-medium has-bg-img">
-      <div className="hero-body">
-        <div className="container">
-          <div className="box">
-            <h1 className="title">Spartan Forum</h1>
+        <section className="hero is-medium has-bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="dashboard">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-three-fifths">
+                <h1 className="is-size-1">Dashboard</h1>
+                {dashboardContent}
+              </div>
+              <div class="column">
+                <figure className="image is-4by5">
+                  <img alt="" src={pic} />
+                </figure>
+              </div>
+              <div class="column" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-      <div className="dashboard">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-three-fifths">
-              <h1 className="is-size-1">Dashboard</h1>
-              {dashboardContent}
-            </div>
-            <div class="column">
-              <figure className="image is-4by5">
-                <img src={pic} />
-              </figure>
-            </div>
-            <div class="column" />
-          </div>
-        </div>
-      </div>
       </React.Fragment>
     );
   }

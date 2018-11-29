@@ -18,6 +18,7 @@ class Login extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.spell = this.spell.bind(this);
   }
 
   componentDidMount() {
@@ -38,10 +39,9 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
 
     this.props.loginUser(userData);
@@ -51,50 +51,73 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  spell() {
+    for (let i in this.state.errors) {
+      alert("Password: " + JSON.stringify(this.state.errors[i].password))
+      alert("Email: " + JSON.stringify(this.state.errors[i].email))
+    }
+  }
+
   render() {
     const { errors } = this.state;
 
     return (
-      <section className="hero is-light">
-        <div id="login-page" className="card">
+      <div>
+        <section className="hero is-light">
           <div className="logo-contain">
-            <img className="logo" src={logo} />
+            <figure className="image is-128x128">
+              <img style={{ marginTop: 50 }} className="is-rounded" src={logo} />
+            </figure>
           </div>
 
-          <div className="login">
-            <div className="login-content">
-              <h1 style={{ paddingBottom: 20 }} className="is-size-4">
-                Login
-              </h1>
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="Email Address"
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}
-                />
-                <TextFieldGroup
-                  placeholder="Password"
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}
-                />
-
-                <button
-                  type="submit"
-                  className="button is-primary is-large is-fullwidth is-outlined"
-                >
-                  Login
+          <h1 style={{ paddingBottom: 20 }} className="is-size-4 has-text-centered">
+            Sign in to Quadrapod
+          </h1>
+          <div id="login-page" className="card">
+            <div className="login">
+              <div className="login-content">
+                <form onSubmit={this.onSubmit}>
+                  <div class="field">
+                    <label class="label">Email Address</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Email Address"
+                        name="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                        error={errors.email}
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <TextFieldGroup
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                        error={errors.password}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    className="button is-primary is-large is-fullwidth is-outlined"
+                  >
+                    Login
                 </button>
-              </form>
+                </form>
+                {this.spell()}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </div>
+
     );
   }
 }

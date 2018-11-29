@@ -1,24 +1,18 @@
 .navbar {
   background-color: #383838 !important;
   padding-bottom: 0px !important; }
-  .navbar a:hover {
-    color: gray !important; }
-
-.navbar.has-shadow {
-  padding-bottom: 0px !important;
-  margin-bottom: 0px !important; }
 
 .navbar-brand a {
   color: #fff !important;
   font-weight: bold !important; }
 
-a.r-item {
+.r-item {
   color: #C1C1C1 !important;
   padding: 0.5rem 1.75rem; }
   @media screen and (max-width: 768px) {
-    a.r-item {
+    .r-item {
       color: gray; }
-      a.r-item:hover {
+      .r-item:hover {
         background-color: #F1F1F1 !important; } }
 
 .navbar-burger span {

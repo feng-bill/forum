@@ -6,10 +6,10 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
 
 import { Provider } from "react-redux";
+
 import store from "./store";
 
 import PrivateRoute from "./components/common/PrivateRoute";
-
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import Landing from "./components/layout/Landing/Landing";
@@ -35,11 +35,10 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(decoded));
 
   // Check for expired token
-  const currenTime = Date.now() / 1000;
-  if (decoded.exp < currenTime) {
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
     //Logout User
     store.dispatch(logoutUser());
-
     //Clear current profile
     store.dispatch(clearCurrentProfile());
     // redirect to login
@@ -55,28 +54,27 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact={true} path="/" component={Landing} />
-
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/faq" component={Faq} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/profiles" component={Profiles} />
-              <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/create-profile"
-                  component={CreateProfile}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/feed" component={Posts} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/feed/:id" component={Post} />
-              </Switch>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/faq" component={Faq} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/profiles" component={Profiles} />
+            <Switch>
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/feed" component={Posts} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/feed/:id" component={Post} />
+            </Switch>
 
             <Footer />
           </div>
