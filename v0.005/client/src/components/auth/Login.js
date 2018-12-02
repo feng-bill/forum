@@ -13,12 +13,14 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: {},
+      wrongPass: false,
+      wrongEmail: false
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    // this.spell = this.spell.bind(this);
+
   }
 
   componentDidMount() {
@@ -34,9 +36,15 @@ class Login extends Component {
 
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors })
+      if (this.state.errors.errors) {
+        if (this.state.errors.errors.password) {
+          this.setState({ wrongPass: true })
+        }
+        if (this.state.errors.errors.email) {
+          this.setState({ wrongEmail: true })
+        }
+      }
     }
-
-
   }
 
   onSubmit(e) {
@@ -48,22 +56,15 @@ class Login extends Component {
     };
 
     this.props.loginUser(userData)
-
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  // spell() {
-  //   for (let i in this.state.errors) {
-  //     alert("Password: " + JSON.stringify(this.state.errors[i].password))
-  //     alert("Email: " + JSON.stringify(this.state.errors[i].email))
-  //   }
-  // }
-
   render() {
     const { errors } = this.state;
+
 
     return (
       <div>
@@ -81,9 +82,9 @@ class Login extends Component {
             <div className="login">
               <div className="login-content">
                 <form onSubmit={this.onSubmit}>
-                  <div class="field">
-                    <label class="label">Email Address</label>
-                    <div class="control">
+                  <div className="field">
+                    <label className="label">Email Address</label>
+                    <div className="control">
                       <TextFieldGroup
                         placeholder="Email Address"
                         name="email"
@@ -93,10 +94,11 @@ class Login extends Component {
                         error={errors.email}
                       />
                     </div>
+                    {this.state.wrongEmail ? JSON.stringify(errors.errors.email) : null}
                   </div>
-                  <div class="field">
-                    <label class="label">Password</label>
-                    <div class="control">
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
                       <TextFieldGroup
                         placeholder="Password"
                         name="password"
@@ -106,6 +108,7 @@ class Login extends Component {
                         error={errors.password}
                       />
                     </div>
+                    {this.state.wrongPass ? JSON.stringify(errors.errors.password) : null}
                   </div>
                   <button
                     type="submit"
@@ -119,12 +122,17 @@ class Login extends Component {
             </div>
           </div>
         </section>
-        {"Password: " + JSON.stringify(this.state.errors[0])}
+
+        {/* <p> {JSON.stringify(errors.errors) == null ? "wrong" : null}</p>
+        <p>{JSON.stringify(this.state.errors.errors)}</p> */}
+
       </div>
 
     );
   }
 }
+
+
 
 //Create Prop types
 Login.propTypes = {

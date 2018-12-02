@@ -6,6 +6,7 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile } from "../../actions/profileActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 
 class CreateProfile extends Component {
   //Component state value -- Fields
@@ -15,6 +16,7 @@ class CreateProfile extends Component {
       displaySocialInputs: false,
       handle: "",
       standing: "",
+      major: "major",
       linkedin: "",
       instagram: "",
       errors: {}
@@ -36,6 +38,7 @@ class CreateProfile extends Component {
     const profileData = {
       handle: this.state.handle,
       standing: this.state.standing,
+      major: this.state.major,
       linkedin: this.state.linkedin,
       instagram: this.state.instagram
     };
@@ -77,6 +80,7 @@ class CreateProfile extends Component {
 
     //Select options for status
     const options = [
+      { label: "Class standing", value: "" },
       { label: "Freshmen", value: "Freshmen" },
       { label: "Sophomore", value: "Sophomore" },
       { label: "Junior", value: "Junior" },
@@ -98,7 +102,7 @@ class CreateProfile extends Component {
               value={this.state.handle}
               onChange={this.onChange}
               error={errors.handle}
-              info="A unique handle for your profile URL."
+              info="Your unique profile handle."
             />
             <SelectListGroup
               placeholder="* Class Standing"
@@ -108,6 +112,13 @@ class CreateProfile extends Component {
               options={options}
               error={errors.standing}
               info="What year are you?"
+            />
+            <TextFieldGroup
+              placeholder="Major"
+              name="major"
+              type="text"
+              value={this.state.major}
+              onChange={this.onChange}
             />
             <div>
               <button

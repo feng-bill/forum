@@ -28,7 +28,7 @@ class Profiles extends Component {
     return (
       <div style={{ paddingTop: 200 }} className="container">
         <h1> This is your profile</h1>
-        <p> let me what you got</p>
+        <p> let me see what you got</p>
         {profileItems}
       </div>
     );

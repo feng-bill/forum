@@ -16,7 +16,10 @@ const ProfileSchema = new Schema({
     type: String,
     required: true
   },
-
+  major: {
+    type: String,
+    required: true
+  },
   social: {
     linkedin: {
       type: String

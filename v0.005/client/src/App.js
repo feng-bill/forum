@@ -20,7 +20,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
-import Profiles from "./components/profiles/Profiles";
+// import Profiles from "./components/profiles/Profiles";
 
 import "./App.css";
 
@@ -55,9 +55,8 @@ class App extends Component {
             <Route exact={true} path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-
             <Route exact path="/about" component={About} />
-            <Route exact path="/profiles" component={Profiles} />
+            {/* <Route exact path="/profiles" component={Profiles} /> */}
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
@@ -74,7 +73,6 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/feed/:id" component={Post} />
             </Switch>
-
             <Footer />
           </div>
         </Router>

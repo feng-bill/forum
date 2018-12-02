@@ -2,7 +2,7 @@
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import FormStyle from "./FormStyle.css";
+import "./FormStyle.css";
 
 // Accept property
 const TextFieldGroup = ({
@@ -33,8 +33,6 @@ const TextFieldGroup = ({
       {info && <small className="form-text text-muted">{info}</small>}
       {/*invalid error message*/}
       {error && <div className="is-danger">{error}</div>}
-
-
     </div>
 
 

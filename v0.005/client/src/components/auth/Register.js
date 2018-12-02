@@ -67,7 +67,7 @@ class Register extends Component {
         <section className="hero is-light">
           <div className="logo-contain">
             <figure className="image is-128x128">
-              <img style={{ marginTop: 50 }} className="is-rounded" src={logo} />
+              <img alt="" style={{ marginTop: 50 }} className="is-rounded" src={logo} />
             </figure>
           </div>
           <h1 style={{ paddingBottom: 20 }} className="is-size-4 has-text-centered">
