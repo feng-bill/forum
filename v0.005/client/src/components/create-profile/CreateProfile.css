@@ -1,0 +1,52 @@
+.container .box .title {
+    color: #000000;
+    align-content: center;
+}
+.boxTitle{
+    padding-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.major{
+    padding-bottom: 10px;
+    width: 200px;
+}
+
+.body3{
+    padding-bottom: 20px;
+    align-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+
+}
+
+.displayGroup{
+    padding-bottom: 10px;
+}
+
+.field.input, .textarea {
+    width: 400px;
+}
+.dropdown.input, .textarea {
+    width: 200px;
+    
+}
+.dropdown{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.major.input, .textarea{
+    width: 200px;
+    
+}
+.major{
+    position: relative;
+    overflow: hidden;
+}
+.button1{
+    position: relative;
+    overflow: hidden;
+}
+.displayGroup{
+    padding-top: 10px;
+}

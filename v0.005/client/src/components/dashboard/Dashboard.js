@@ -28,19 +28,22 @@ class Dashboard extends Component {
       dashboardContent = <Spinner />;
     } else {
       //Check if logged in user has profile data
-      if (Object.keys(profile).length > 0) {
 
+      if(Object.keys(profile).length > 0){
         dashboardContent =
-          <div>
-            <h4>Welcome {user.name}</h4>
-            <h4>Handle: {profile.handle}</h4>
-            <h4>Class standing: {profile.standing}</h4>
-            <h4>Major: {profile.major}</h4>
-            <h4>Been with us since: {profile.date}</h4>
-            <p>Linkedin: <a href={profile.social.linkedin}>{JSON.stringify(profile.social.linkedin)}</a></p>
-            <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
-          </div >
-      } else {
+        <div>
+          <h4>Welcome {user.name}</h4>
+          <h4>Bio: {profile.handle}</h4>
+          <h4>Class standing: {profile.standing}</h4>
+          <h4>Major: {profile.major}</h4>
+          <h4>Been with us since: {profile.date}</h4>
+          <p>Linkedin: <a href={profile.social.linkedin}>{JSON.stringify(profile.social.linkedin)}</a></p>
+            
+          <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
+            
+        </div >
+      }
+      else {
         // User is logged in but no profile
         dashboardContent = (
           <div>
