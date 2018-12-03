@@ -1,5 +1,5 @@
 import {
-
+    ADD_POST,
     GET_POSTS,
     GET_POST,
     POST_LOADING,
