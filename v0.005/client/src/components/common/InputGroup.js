@@ -15,7 +15,7 @@ const InputGroup = ({
 }) => {
   return (
     <div className="field control">
-      <textarea
+      <textarea style={{ width: 200}}
         className={classnames("input", {
           "is-danger": error
         })}

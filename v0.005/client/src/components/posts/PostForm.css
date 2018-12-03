@@ -3,3 +3,6 @@
 
 .ancestor2 .box {
   background-color: #E8F4FC; }
+
+.ancestor2 {
+  padding-bottom: 20px; }

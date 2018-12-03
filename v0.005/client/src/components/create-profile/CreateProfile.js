@@ -7,7 +7,7 @@ import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile } from "../../actions/profileActions";
 import TextFieldGroup from "../common/TextFieldGroup";
-
+import "./CreateProfile.css";
 class CreateProfile extends Component {
   //Component state value -- Fields
   constructor(props) {
@@ -16,7 +16,7 @@ class CreateProfile extends Component {
       displaySocialInputs: false,
       handle: "",
       standing: "",
-      major: "major",
+      major: "",
       linkedin: "",
       instagram: "",
       errors: {}
@@ -57,7 +57,7 @@ class CreateProfile extends Component {
 
     if (displaySocialInputs) {
       socialInput = (
-        <div>
+        <div className="displayGroup">
           <InputGroup
             placeholder="Linkedin profile"
             name="linkedin"
@@ -80,66 +80,105 @@ class CreateProfile extends Component {
 
     //Select options for status
     const options = [
-      { label: "Class standing", value: "" },
+      { label: "none", value: "" },
       { label: "Freshmen", value: "Freshmen" },
       { label: "Sophomore", value: "Sophomore" },
       { label: "Junior", value: "Junior" },
       { label: "Senior", value: "Senior" }
     ];
+    //<div className = "body2">
 
+    //<div className="columns">
+    //<div className="column is-one-quarter" />
+    //<div className="column is-two-quarter">
+
+    //</div>
+    //<div className = "column is-one-quarter"></div>
+    //</div>
     return (
-      <div className="create-profile">
-        <div className="container">
-          <h1 className="is-size-1 has-text-centered">Create Your Profile</h1>
-          <p className="has-text-centered">Give me some info</p>
-          <small className="column is-7">* = required field</small>
-
-          <form onSubmit={this.onSubmit}>
-            {/* profile handle - textfieldgroup */}
-            <TextAreaFieldGroup
-              placeholder="* Profile Handle"
-              name="handle"
-              value={this.state.handle}
-              onChange={this.onChange}
-              error={errors.handle}
-              info="Your unique profile handle."
-            />
-            <SelectListGroup
-              placeholder="* Class Standing"
-              name="standing"
-              value={this.state.standing}
-              onChange={this.onChange}
-              options={options}
-              error={errors.standing}
-              info="What year are you?"
-            />
-            <TextFieldGroup
-              placeholder="Major"
-              name="major"
-              type="text"
-              value={this.state.major}
-              onChange={this.onChange}
-            />
-            <div>
-              <button
-                type="button"
-                onClick={() => {
-                  this.setState(prevState => ({
-                    //Toggle this piece of input
-                    displaySocialInputs: !prevState.displaySocialInputs
-                  }));
-                }}
-                className="button is-info"
-              >
-                Add social network link
-              </button>
-              <span className="has-text-grey-light">Optional</span>
+      <React.Fragment>
+        <section className="hero is-medium has-bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <div className="box">
+                <h1 className="title">Spartan Forum</h1>
+              </div>
             </div>
-            {socialInput}
-            <input type="submit" value="Submit" className="button is-info" />
-          </form>
+          </div>
+        </section>
+        <div className="boxTitle">
+          <div className="box">
+            <h1 className="title is-size-1 has-text-centered">
+              Create Your Profile
+            </h1>
+          </div>
+          <p className="has-text-centered" />
         </div>
-      </div>
+
+        <div className="body3">
+          <div className="box">
+            <small className="column is-7">* = required field</small>
+
+            <form onSubmit={this.onSubmit}>
+              {/* profile handle - textfieldgroup */}
+
+              <TextAreaFieldGroup
+                placeholder="Profile Description/Bio"
+                name="handle"
+                value={this.state.handle}
+                onChange={this.onChange}
+                error={errors.handle}
+                info="* Your profile's description."
+              />
+              <div className="columns">
+                <div className="column is-half">
+                  <div className="dropdown">
+                    <SelectListGroup
+                      placeholder="* Class Standing"
+                      name="standing"
+                      value={this.state.standing}
+                      onChange={this.onChange}
+                      options={options}
+                      error={errors.standing}
+                      info="* What year are you?"
+                    />
+                  </div>
+                  <div className="major">
+                    <TextFieldGroup
+                      placeholder="Major"
+                      name="major"
+                      type="text"
+                      value={this.state.major}
+                      onChange={this.onChange}
+                      info="* What is your major?"
+                    />
+                  </div>
+                </div>
+                <div className="column">
+                  <div className="button1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        this.setState(prevState => ({
+                          //Toggle this piece of input
+                          displaySocialInputs: !prevState.displaySocialInputs
+                        }));
+                      }}
+                      className="button is-info"
+                    >
+                      Add social network link
+                    </button>
+                    <span className="has-text-grey-light"> Optional</span>
+                  </div>
+
+                  {socialInput}
+                </div>
+              </div>
+              <input type="submit" value="Submit" className="button is-info" />
+            </form>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }
