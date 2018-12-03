@@ -29,7 +29,7 @@ class Dashboard extends Component {
     } else {
       //Check if logged in user has profile data
 
-      if(Object.keys(profile).length > 0 && typeof(profile.social.linkedin) !== undefined || typeof(profile.social.linkedin) !== undefined){
+      if(Object.keys(profile).length > 0){
         dashboardContent =
         <div>
           <h4>Welcome {user.name}</h4>
@@ -42,18 +42,6 @@ class Dashboard extends Component {
           <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
             
         </div >
-      }
-      else if (Object.keys(profile).length > 0 && profile.social.linkedin === undefined || profile.social.linkedin === undefined) {
-
-        dashboardContent =
-          <div>
-            <h4>Welcome {user.name}</h4>
-            <h4>Bio: {profile.handle}</h4>
-            <h4>Class standing: {profile.standing}</h4>
-            <h4>Major: {profile.major}</h4>
-            <h4>Been with us since: {profile.date}</h4>
-            
-          </div >
       }
       else {
         // User is logged in but no profile
