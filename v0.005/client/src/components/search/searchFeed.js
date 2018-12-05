@@ -1,21 +1,21 @@
-//map through the post from
-//postContent = <PostFeed posts={posts} />;
+//map through the search result from
+//postContent = <SearchFeed posts={posts} />;
 //display item
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import PostItem from "./PostItem";
+import SearchItem from "./SearchItem";
 
-class searchFeed extends Component {
-    render() {
-        //destruct and take the post out of props
-        const { posts } = this.props;
+class SearchFeed extends Component {
+  render() {
+    //destruct and take the post out of props
+    const { posts } = this.props;
 
-        return posts.map(post => <PostItem key={post._id} post={post} />);
-    }
+    return posts.map(post => <SearchItem key={post._id} post={post} />);
+  }
 }
 
-PostFeed.propTypes = {
-    posts: PropTypes.array.isRequired
+SearchFeed.propTypes = {
+  posts: PropTypes.array.isRequired
 };
-export default searchFeed;
+export default SearchFeed;

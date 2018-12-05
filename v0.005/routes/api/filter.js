@@ -14,25 +14,23 @@ const User = require("../../models/User");
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "filter route work" }));
 
-// @route   post api/filter/?search=
-// @desc    Tests filter route
-// @access  Public
-// router.post("/", (req, res) => {
+// GET /search?q=tobi+ferret
+// req.query.q
+// => "tobi ferret"
+router.post("/search/:data", (req, res) => {
 
-//     Post.find({ "text": /testing/i })
-//         .then(posts => res.json(posts))
-//         .catch(err => res.status(404).json({ nopostsfound: "no found" }));
-// })
+    console.log("Hitting the api ")
 
-router.post("/ask/:data", (req, res) => {
-    var key = req.param.data;
+    // var txt = req.query.data
+    var txt = req.params.data
 
-    Post.find({ "text": { $regex: key } })
-        .then(posts => {
-            return res.status(400).json({ posts })
-        })
-        .catch(err => res.status(404).json({ key }))
+    console.log(typeof (txt))
+    console.log("My text is " + txt)
+
+    Post.find({ "text": new RegExp(txt, "i") })
+        .then(posts => res.json(posts)
+        )
+        .catch(err => res.status(404).json({ msg: "No posts found with that key word." }))
 })
-
 
 module.exports = router;

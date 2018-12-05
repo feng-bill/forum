@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, unLike } from "../../actions/postAction";
 
-class PostItem extends Component {
+class SearchItem extends Component {
   onDeleteClick(id) {
     this.props.deletePost(id);
   }
@@ -66,8 +66,11 @@ class PostItem extends Component {
                   >
                     <i className="icon fa fa-thumbs-down" />
                   </button>
+
                   <article className="media">
                     <div className="media-content">
+
+
                       {post.user === auth.user.id ? (
                         <button
                           onClick={this.onDeleteClick.bind(this, post._id)}
@@ -90,11 +93,11 @@ class PostItem extends Component {
   }
 }
 
-PostItem.defaultProps = {
+SearchItem.defaultProps = {
   showActions: true
 };
 
-PostItem.propTypes = {
+SearchItem.propTypes = {
   deletePost: PropTypes.func.isRequired,
   addLike: PropTypes.func.isRequired,
   unLike: PropTypes.func.isRequired,
@@ -108,4 +111,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { deletePost, addLike, unLike }
-)(PostItem);
+)(SearchItem);

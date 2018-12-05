@@ -28,13 +28,13 @@ class Post extends Component {
       postContent = (
         <React.Fragment>
           <PostItem post={post} showActions={false} />
-          
+
           <div className="invisibleBox"><hr />
             <CommentFeed postId={post._id} comments={post.comments} />
           </div>
           <hr />
           <CommentForm postId={post._id} />
-          
+
         </React.Fragment>
       );
     }
@@ -55,8 +55,8 @@ class Post extends Component {
             <div className="level-left">
               <div className="level-item">
                 <p>
-                  <a href="/">Home</a> > <a href="./">Feed</a> >{" "}
-                  <a href="javascript:window.location.href=window.location.href">
+                  <a alt="" href="/">Home</a> > <a href="./">Feed</a> >
+                  <a alt="" href="javascript:window.location.href=window.location.href">
                     Post
                   </a>
                 </p>

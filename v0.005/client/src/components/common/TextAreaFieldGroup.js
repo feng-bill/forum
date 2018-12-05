@@ -14,7 +14,7 @@ const TextAreaFieldGroup = ({
 }) => {
   return (
     <div className="field">
-      <textarea style={{ width: 700,height: 100 }}
+      <textarea style={{ width: 700, height: 100 }}
         className={classnames("input", {
           "is-danger": error
         })}

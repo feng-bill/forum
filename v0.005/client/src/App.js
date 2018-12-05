@@ -5,6 +5,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
 
+//Provide application with "store" that holds all the data
 import { Provider } from "react-redux";
 
 import store from "./store";
@@ -16,11 +17,13 @@ import Landing from "./components/layout/Landing/Landing";
 import About from "./components/layout/About/About";
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+import Search from './components/search/SearchPosts'
+
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
-// import Profiles from "./components/profiles/Profiles";
+
 
 import "./App.css";
 
@@ -56,7 +59,8 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/about" component={About} />
-            {/* <Route exact path="/profiles" component={Profiles} /> */}
+            <Route exact path="/search/:data" component={Search} />
+
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
@@ -73,6 +77,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/feed/:id" component={Post} />
             </Switch>
+
             <Footer />
           </div>
         </Router>

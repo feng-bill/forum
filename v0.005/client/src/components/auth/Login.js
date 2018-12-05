@@ -65,13 +65,12 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
 
-
     return (
       <div>
         <section className="hero is-light">
           <div className="logo-contain">
             <figure className="image is-128x128">
-              <img style={{ marginTop: 50 }} className="is-rounded" src={logo} />
+              <img alt="" style={{ marginTop: 50 }} className="is-rounded" src={logo} />
             </figure>
           </div>
 
@@ -115,7 +114,7 @@ class Login extends Component {
                     className="button is-primary is-large is-fullwidth is-outlined"
                   >
                     Login
-                </button>
+                  </button>
                 </form>
 
               </div>

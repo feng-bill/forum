@@ -8,10 +8,7 @@ import {
   DELETE_POST,
   GET_POST,
   CLEAR_ERRORS,
-  GET_PROFILE,
-  GET_PROFILES
 } from "./types";
-import { setProfileLoading } from "./profileActions";
 
 // Add Post
 export const addPost = postData => dispatch => {

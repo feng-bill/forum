@@ -44,10 +44,8 @@ class Posts extends Component {
                 <div className="level-left">
                   <div className="level-item">
                     <p>
-                      <a href="/">Home</a> >{" "}
-                      <a href="javascript:window.location.href=window.location.href">
-                        Feed
-                      </a>
+                      <a alt="" href="/">Home</a> >
+                      <a alt="" href="javascript:window.location.href=window.location.href">Feed</a>
                     </p>
                   </div>
                   <div className="level-item">
@@ -77,31 +75,18 @@ class Posts extends Component {
               </Tabs>
             </div>
             <div className="column is-one-third">
-              <div className="content">
-                <p className="subTitle">
-                  <b>Trending</b>
-                </p>
-                <hr />
-                <ul>
-                  <li>
-                    <a href="/" target="_blank">
-                      A Specific Post
-                    </a>
-                  </li>
-                  <hr />
-                  <li>
-                    <a href="/" target="_blank">
-                      A Specific Post
-                    </a>
-                  </li>
-                  <hr />
-                  <li>
-                    <a href="/" target="_blank">
-                      A Specific Post
-                    </a>
-                  </li>
-                  <hr />
-                </ul>
+              <div style={{ marginTop: 100 }} className="content">
+                <aside class="menu">
+                  <p class="menu-label is-size-3">Trending</p>
+                  <ul class="menu-list">
+                    <li><a href="/" target="_blank">Dashboard</a></li>
+                    <hr />
+                    <li><a href="/" target="_blank" >Customers</a></li>
+                    <hr />
+                    <li><a href="/" target="_blank" >Customers</a></li>
+                    <hr />
+                  </ul>
+                </aside>
               </div>
             </div>
           </div>
