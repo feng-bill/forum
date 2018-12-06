@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, unLike } from "../../actions/postAction";
+import Moment from 'react-moment';
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -31,62 +32,73 @@ class PostItem extends Component {
     return (
       <div style={{ paddingTop: 20 }}>
         <div className="box">
-        
-          <article className="media media-left">
-            <figure className="image is-64x64">
-              <img src={post.avatar} alt="" />
-            </figure>
+          <article className="media ">
+            <div className="media-left">
+              <figure className="image is-64x64">
+                <img src={post.avatar} alt="" />
+              </figure>
+            </div>
             <div className="media-content">
-            <Link to={`/feed/${post._id}`} className="is-info">
-              <p>
-                <strong>{post.text} </strong>
+              <div className="content">
+                <Link to={`/feed/${post._id}`} className="is-info">
+                  <p>
+                    <strong>{post.text} </strong>
+                  </p>
+                </Link>
                 <small>@{post.name}</small>
                 <br />
-              </p></Link>
-              {showActions ? (
-                <span>
-                  {/* Like button */}
-                  <button
-                    onClick={this.onLikeClick.bind(this, post._id)}
-                    type="button"
-                    className="button is-light"
-                  >
-                    <i
-                      className={classnames("icon fa fa-thumbs-up", {
-                        "button is-info": this.findUserLike(post.likes)
-                      })}
-                    />
-                    {post.likes.length}
-                  </button>
-                  {/* Remove like */}
-                  <button
-                    onClick={this.onUnlikeClick.bind(this, post._id)}
-                    type="button"
-                    className="button is-light"
-                  >
-                    <i className="icon fa fa-thumbs-down" />
-                  </button>
-
-                  <article className="media">
-                    <div className="media-content">
-                      
-                       
-                      {post.user === auth.user.id ? (
-                        <button
-                          onClick={this.onDeleteClick.bind(this, post._id)}
-                          type="button"
-                          className="is-danger"
-                        >
-                          Delete <i className="fa fa-times" />
-                        </button>
-                      ) : null}
+                <div>
+                  Posted:
+                    <Moment fromNow>
+                    {post.date}
+                  </Moment>
+                </div>
+                {showActions ? (
+                  <div>
+                    <div className="buttons">
+                      {/* Like button */}
+                      <button
+                        onClick={this.onLikeClick.bind(this, post._id)}
+                        type="button"
+                        className="button is-light"
+                      >
+                        <i
+                          className={classnames("icon fa fa-thumbs-up", {
+                            "icon has-text-info": this.findUserLike(post.likes)
+                          })}
+                        />
+                        {this.findUserLike(post.likes)}
+                      </button>
+                      {/* Remove like */}
+                      <button
+                        onClick={this.onUnlikeClick.bind(this, post._id)}
+                        type="button"
+                        className="button is-light"
+                      >
+                        <i className="icon fa fa-thumbs-down" />
+                      </button>
                     </div>
-                  </article>
-                </span>
-              ) : null}
-            </div>        
+                    {/* Delete button  */}
+                    <article className="media">
+                      <div className="media-content">
+                        {post.user === auth.user.id ? (
+                          <button
+                            onClick={this.onDeleteClick.bind(this, post._id)}
+                            type="button"
+                            className="is-danger"
+                          >
+                            Delete <i className="fa fa-times" />
+                          </button>
+                        ) : null}
+                      </div>
+                    </article>
+                  </div>
+                ) : null}
+              </div>
+
+            </div>
           </article>
-          
+
         </div>
       </div>
     );

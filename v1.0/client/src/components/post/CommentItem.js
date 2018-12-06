@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteComment } from "../../actions/postAction";
+import Moment from 'react-moment';
+import { Link } from "react-router-dom"
 import "./CommentItem.css";
 
 class CommentItem extends Component {
@@ -18,25 +20,28 @@ class CommentItem extends Component {
       <React.Fragment>
         <div className="box">
           <article className="media">
-            <figure className="media-left">
-              <p className="image is-64x64">
+            <div className="media-left">
+              <figure className="image is-64x64">
                 <img src={comment.avatar} alt="" />
-              </p>
-            </figure>
+              </figure>
+            </div>
             <div className="media-content">
               <div className="content">
-                <p>
-                  <strong>{comment.text}</strong>
-                  {/* Find user name by id */}
-                  <small>@{comment.name}</small>
-                </p>
+                <h5 className="subtitle">{comment.text}</h5>
+                <small>@{comment.name}</small>
+                <div>
+                  Posted:
+                    <Moment fromNow>
+                    {comment.date}
+                  </Moment>
+                </div>
                 {comment.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, postId, comment._id)}
                     type="button"
                     className="is-danger"
                   >
-                    Delete <i className="fa fa-times" />
+                    Delete <i className="fa fa-times has-text-danger	" />
                   </button>
                 ) : null}
               </div>

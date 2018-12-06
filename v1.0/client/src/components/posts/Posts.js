@@ -10,6 +10,8 @@ import { getPosts } from "../../actions/postAction";
 import "../layout/TabCSS/Tab.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./Posts.css";
+import { Link } from "react-router-dom"
+
 class Posts extends Component {
   componentDidMount() {
     this.props.getPosts();
@@ -44,7 +46,7 @@ class Posts extends Component {
                 <div className="level-left">
                   <div className="level-item">
                     <p>
-                      <a alt="" href="/">Home</a> >
+                      <a alt="" href="/">Home</a>
                       <a alt="" href="javascript:window.location.href=window.location.href">Feed</a>
                     </p>
                   </div>
@@ -79,11 +81,25 @@ class Posts extends Component {
                 <aside class="menu">
                   <p class="menu-label is-size-3">Trending</p>
                   <ul class="menu-list">
-                    <li><a href="/" target="_blank">Dashboard</a></li>
+                    <li>
+                      <Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                        <p>
+                          <strong>Where is the school Starbucks located?</strong>
+                        </p>
+                      </Link>
+                    </li>
                     <hr />
-                    <li><a href="/" target="_blank" >Customers</a></li>
+                    <li><Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                      <p>
+                        <strong>Where is the school Starbucks located?</strong>
+                      </p>
+                    </Link></li>
                     <hr />
-                    <li><a href="/" target="_blank" >Customers</a></li>
+                    <li><Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                      <p>
+                        <strong>Where is the school Starbucks located?</strong>
+                      </p>
+                    </Link></li>
                     <hr />
                   </ul>
                 </aside>

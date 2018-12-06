@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
+import Moment from "react-moment"
 
 import pic from "../../assets/bigHero.png";
 
@@ -49,7 +50,7 @@ class Dashboard extends Component {
               <p>Linkedin: <a href={profile.social.linkedin}>{JSON.stringify(profile.social.linkedin)}</a></p>
               <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
               <br />
-              <h4 className="is-size-5">Been with us since: {profile.date}</h4>
+              <h4 className="is-size-5">Joined at: <Moment format="YYYY/MM/DD">{profile.date}</Moment></h4>
             </div>
           </div >
       }
