@@ -27,6 +27,7 @@ class CommentItem extends Component {
               <div className="content">
                 <p>
                   <strong>{comment.text}</strong>
+                  {/* Find user name by id */}
                   <small>@{comment.name}</small>
                 </p>
                 {comment.user === auth.user.id ? (

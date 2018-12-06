@@ -15,9 +15,6 @@ class Dashboard extends Component {
     this.props.getCurrentProfile();
   }
 
-
-
-
   render() {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
@@ -29,25 +26,38 @@ class Dashboard extends Component {
     } else {
       //Check if logged in user has profile data
 
-      if(Object.keys(profile).length > 0){
+      if (Object.keys(profile).length > 0) {
         dashboardContent =
-        <div>
-          <h4>Welcome {user.name}</h4>
-          <h4>Bio: {profile.handle}</h4>
-          <h4>Class standing: {profile.standing}</h4>
-          <h4>Major: {profile.major}</h4>
-          <h4>Been with us since: {profile.date}</h4>
-          <p>Linkedin: <a href={profile.social.linkedin}>{JSON.stringify(profile.social.linkedin)}</a></p>
-            
-          <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
-            
-        </div >
+          <div>
+            <section class="hero is-info ">
+              <div class="hero-body is-size-4 is-capitalized has-text-left">
+                <div class="container">
+                  <img
+                    className="image is-96x96"
+                    src={user.avatar}
+                    alt={user.name}
+                    title="you have an image"
+                  />
+                </div>
+                <div>{user.name}</div>
+                <p>@{profile.handle}</p>
+              </div>
+            </section>
+            <div className="is-size-4 is-capitalized has-text-left">
+              <h4>Class standing: {profile.standing}</h4>
+              <h4>Major: {profile.major}</h4>
+              <p>Linkedin: <a href={profile.social.linkedin}>{JSON.stringify(profile.social.linkedin)}</a></p>
+              <p>Instagram: <a href={profile.social.instagram}>{JSON.stringify(profile.social.instagram)}</a></p>
+              <br />
+              <h4 className="is-size-5">Been with us since: {profile.date}</h4>
+            </div>
+          </div >
       }
       else {
         // User is logged in but no profile
         dashboardContent = (
           <div>
-            <h1 className="lead text-muted is-size-2 is-capitalized">
+            <h1 className="is-size-2 is-capitalized">
               Welcome {user.name}
             </h1>
             <p>

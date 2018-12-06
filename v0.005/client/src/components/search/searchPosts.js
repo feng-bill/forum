@@ -28,14 +28,50 @@ class SearchPosts extends Component {
             postContent = <SearchFeed posts={posts} />;
         }
         return (
-            <div>
-                <div style={{ marginTop: 100, paddingTop: 100 }}>
-                    <p> Hi this is your search s </p>
+            <React.Fragment>
+                <section className="hero is-medium has-bg-img">
+                    <div className="hero-body">
+                        <div className="container">
+                            <div className="box">
+                                <h1 className="title">Spartan Forum</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div className="body2">
+                    <div className="columns">
+                        <div className="column is-two-thirds">
+                            <nav className="level">
+                                <div className="level-left">
+                                    <div className="level-item">
+                                        <p>
+                                            <a alt="" href="/">Home</a> >
+                      <a alt="" href="javascript:window.location.href=window.location.href">Feed</a>
+                                        </p>
+                                    </div>
+                                    <div className="level-item">
+                                        <div className="field has-addons">
+                                            <p className="control is-expanded">
+                                                <input
+                                                    className="input"
+                                                    type="text"
+                                                    placeholder="Find a post"
+                                                />
+                                            </p>
+                                            <p className="control">
+                                                <button className="button">Search</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div>
+                                {postContent}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {/* {JSON.stringify(this.props.search.post[0])} */}
-                {postContent}
-            </div>
-
+            </React.Fragment>
         );
     }
 }

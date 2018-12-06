@@ -37,8 +37,6 @@ class Header extends Component {
     };
 
     // this.context.router.push(`'/search/${this.state.search}'`);
-    // console.log("sending props")
-    alert("coming")
     this.props.keywordSearch(search);
   }
 

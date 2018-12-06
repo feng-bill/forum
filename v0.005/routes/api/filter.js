@@ -19,13 +19,7 @@ router.get("/test", (req, res) => res.json({ msg: "filter route work" }));
 // => "tobi ferret"
 router.post("/search/:data", (req, res) => {
 
-    console.log("Hitting the api ")
-
-    // var txt = req.query.data
     var txt = req.params.data
-
-    console.log(typeof (txt))
-    console.log("My text is " + txt)
 
     Post.find({ "text": new RegExp(txt, "i") })
         .then(posts => res.json(posts)

@@ -5,7 +5,7 @@ import {
 } from "./types";
 
 // Search post
-export const keywordSearch = data => dispatch => {
+export const keywordSearch = (data) => dispatch => {
     dispatch(clearErrors());
     // dispatch(setPostLoading());
     axios
