@@ -24,16 +24,11 @@ class About extends Component {
             </p>
 
             <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for 'lorem ipsum' will
-              uncover many web sites still in their infancy. Various versions
-              have evolved over the years, sometimes by accident, sometimes on
-              purpose (injected humour and the like).
+              Quadrapod was founded in spring of 2018. We are a group of San Jose State University students
+              majoring in Management Information Systems. We are passionate and dedicated in learning how
+              to bridge the gap between Business and Information Systems. Our mission is to create a platform
+              to unite all students. We hope that all students can adapt to university life and become familiar
+              with the university very quickly. We believe that our forum will benefit all the students.
             </p>
           </div>
         </div>
