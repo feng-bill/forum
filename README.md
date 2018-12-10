@@ -10,8 +10,9 @@ npm install
 3. To start the application - Run:
 npm run dev
 
-**You have to refresh the page one time**
-
+**You might see a blank page at first. You have to refresh the page one time**
+Or see the live build version at 
+https://quadrapod-forum.herokuapp.com
 
 
 **Client folder**
