@@ -86,15 +86,7 @@ class CreateProfile extends Component {
       { label: "Junior", value: "Junior" },
       { label: "Senior", value: "Senior" }
     ];
-    //<div className = "body2">
 
-    //<div className="columns">
-    //<div className="column is-one-quarter" />
-    //<div className="column is-two-quarter">
-
-    //</div>
-    //<div className = "column is-one-quarter"></div>
-    //</div>
     return (
       <React.Fragment>
         <section className="hero is-medium has-bg-img">
@@ -122,13 +114,13 @@ class CreateProfile extends Component {
             <form onSubmit={this.onSubmit}>
               {/* profile handle - textfieldgroup */}
 
-              <TextAreaFieldGroup
-                placeholder="Profile Description/Bio"
+              @<TextFieldGroup
+                placeholder="Profile Handle e.a. @BarackObama"
                 name="handle"
                 value={this.state.handle}
                 onChange={this.onChange}
                 error={errors.handle}
-                info="* Your profile's description."
+                info="* Your profile's handle."
               />
               <div className="columns">
                 <div className="column is-half">

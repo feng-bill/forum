@@ -41,7 +41,7 @@ class Dashboard extends Component {
                   />
                 </div>
                 <div>{user.name}</div>
-                <p>@{profile.handle}</p>
+                <p>{profile.handle}</p>
               </div>
             </section>
             <div className="is-size-4 is-capitalized has-text-left">

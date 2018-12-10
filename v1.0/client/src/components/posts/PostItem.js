@@ -69,6 +69,8 @@ class PostItem extends Component {
                         />
                         {this.findUserLike(post.likes)}
                       </button>
+                      {post.likes.length}
+
                       {/* Remove like */}
                       <button
                         onClick={this.onUnlikeClick.bind(this, post._id)}

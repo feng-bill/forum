@@ -10,6 +10,10 @@ npm install
 3. To start the application - Run:
 npm run dev
 
+**You have to refresh the page one time**
+
+
+
 **Client folder**
 We will be using React for front-end in the client folder.
 1. node_modules folder: node packages that comes with node application
