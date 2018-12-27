@@ -7,11 +7,11 @@
   font-weight: bold !important; }
 
 .r-item {
-  color: #C1C1C1 !important;
+  color: white !important;
   padding: 0.5rem 1.75rem; }
   @media screen and (max-width: 768px) {
     .r-item {
-      color: gray; }
+      color: white; }
       .r-item:hover {
         background-color: #F1F1F1 !important; } }
 
@@ -40,6 +40,9 @@ div.navbar-end {
 div.navbar-item {
   margin-left: 25px;
   margin-right: 25px; }
+
+a.navbar-item {
+  color: white !important; }
 
 .logo {
   height: 7rem; }

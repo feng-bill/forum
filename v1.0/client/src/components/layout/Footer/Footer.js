@@ -21,7 +21,7 @@ export default class Footer extends Component {
           <span className="icon is-large">
             <a href="http://www.youtube.com" className="icon fa fa-youtube " />
           </span>
-
+          <h1><a href="mailto:bill21223@gmail.com">Contact Us</a></h1>
           <h1 style={{ color: "white" }}>
             © Quardrapod Team. All rights reserved. 2018
           </h1>

@@ -16,7 +16,7 @@ class Header extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
   }
 
   onLogoutClick(e) {
@@ -29,20 +29,19 @@ class Header extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  // onSubmit(e) {
+  //   e.preventDefault();
 
-    const search = {
-      search: this.state.search
-    };
+  //   const search = {
+  //     search: this.state.search
+  //   };
+  //   console.log("Hit Submit")
+  //   this.props.keywordSearch();
+  // }
 
-    // this.context.router.push(`'/search/${this.state.search}'`);
-    this.props.keywordSearch(search);
-  }
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-
 
     //Auth Link
     const authLinks = (
@@ -87,29 +86,34 @@ class Header extends Component {
               <a href="/" className="navbar-item">Home</a>
               <a href="/feed" className="navbar-item">Academic</a>
               <a href="/about" className="navbar-item">About</a>
-              <form>
-                <div className="navbar-item field add-on">
+
+              <div className="navbar-item">
+                <div className="field has-addons">
                   <div className="control">
                     <input
-                      className="input"
                       type="text"
+                      className="input"
+                      placeholder="Search a post"
                       name="search"
-                      placeholder="Find a post"
                       value={this.state.search}
                       onChange={this.onChange}
                     />
                   </div>
                   <div className="control">
-                    <button type="submit" className="button is-info" onSubmit={this.onSubmit}>Search</button>
+                    <a className="button is-info" href={`/filter/${this.state.search}`}>
+                      Search
+                    </a>
                   </div>
                 </div>
-              </form >
-              <div className="navbar-item">
-                {isAuthenticated ? authLinks : guestLinks}
               </div>
             </div>
+
+            <div className="navbar-item">
+              {isAuthenticated ? authLinks : guestLinks}
+            </div>
+
           </div>
-        </nav>
+        </nav >
 
       </React.Fragment >
     );

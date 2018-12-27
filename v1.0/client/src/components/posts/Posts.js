@@ -14,6 +14,7 @@ import { Link } from "react-router-dom"
 
 class Posts extends Component {
   componentDidMount() {
+    //do all API call
     this.props.getPosts();
   }
 
@@ -46,24 +47,11 @@ class Posts extends Component {
                 <div className="level-left">
                   <div className="level-item">
                     <p>
-                      <a alt="" href="/">Home</a>
+                      <a alt="" href="/">Home</a> >
                       <a alt="" href="javascript:window.location.href=window.location.href">Feed</a>
                     </p>
                   </div>
-                  <div className="level-item">
-                    <div className="field has-addons">
-                      <p className="control is-expanded">
-                        <input
-                          className="input"
-                          type="text"
-                          placeholder="Find a post"
-                        />
-                      </p>
-                      <p className="control">
-                        <button className="button">Search</button>
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
               </nav>
               <Tabs>
@@ -79,25 +67,25 @@ class Posts extends Component {
             <div className="column is-one-third">
               <div style={{ marginTop: 100 }} className="content">
                 <aside class="menu">
-                  <p class="menu-label is-size-3">Trending</p>
+                  <p class="menu-label is-size-3">Recommend</p>
                   <ul class="menu-list">
                     <li>
-                      <Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                      <Link to="/feed/5c1fe4ddadad69001614025a" className="is-info">
                         <p>
-                          <strong>Where is the school Starbucks located?</strong>
+                          <strong>Is this website better than the Samy App?</strong>
                         </p>
                       </Link>
                     </li>
                     <hr />
-                    <li><Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                    <li><Link to="/feed/5c0ded35f87f3b1b3096595e" className="is-info">
                       <p>
-                        <strong>Where is the school Starbucks located?</strong>
+                        <strong>Who to take for CS 146?</strong>
                       </p>
                     </Link></li>
                     <hr />
-                    <li><Link to="/feed/5c0873f370cdf60d23eee563" className="is-info">
+                    <li><Link to="/feed/5c0ded3ef87f3b1b3096595f" className="is-info">
                       <p>
-                        <strong>Where is the school Starbucks located?</strong>
+                        <strong>Who is the best MIS teacher?</strong>
                       </p>
                     </Link></li>
                     <hr />

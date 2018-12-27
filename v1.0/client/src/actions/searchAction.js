@@ -5,15 +5,15 @@ import {
 } from "./types";
 
 // Search post
-export const keywordSearch = (data) => dispatch => {
-    dispatch(clearErrors());
+export const keywordSearch = search => dispatch => {
+    // dispatch(clearErrors());
     // dispatch(setPostLoading());
     axios
-        .post(`/api/filter/search/${data}`)
+        .get(`/api/filter/filter/${search}`)
         .then(res =>
             dispatch({
                 type: SEARCH_POST,
-                payload: res.data
+                payload: res.data,
             })
         )
         .catch(err =>
@@ -22,7 +22,6 @@ export const keywordSearch = (data) => dispatch => {
                 payload: err.response.data
             })
         );
-
 };
 
 

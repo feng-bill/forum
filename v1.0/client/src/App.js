@@ -23,7 +23,6 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 
-
 import "./App.css";
 
 //Check for token
@@ -58,7 +57,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/search/:data" component={Search} />
+            <Route exact path="/filter/:search" component={Search} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
